@@ -24,31 +24,29 @@ function HomePage() {
     <div className="min-h-screen">
       <SiteHeader />
 
-      {/* HERO / BANNER DINÂMICO */}
-      <section className="relative overflow-hidden">
+      {/* HERO / BANNER DINÂMICO — seção escura */}
+      <section className="relative overflow-hidden bg-ink text-paper">
         <div className="max-w-6xl mx-auto px-4 pt-16 pb-24 md:pt-24 md:pb-32">
           <div className="grid md:grid-cols-[1.4fr_1fr] gap-10 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border-2 border-ink px-3 py-1 bg-white mb-6 font-mono text-xs">
+              <div className="inline-flex items-center gap-2 rounded-full border border-paper/30 px-3 py-1 mb-6 font-mono text-xs text-paper/80">
                 <span className="w-2 h-2 rounded-full bg-pink animate-pulse" />
                 disponível pra projetos ✿
               </div>
-              <h1 className="font-mono font-extrabold text-5xl md:text-7xl leading-[0.95] tracking-tight">
+              <h1 className="font-mono font-extrabold text-5xl md:text-7xl leading-[0.95] tracking-tight text-paper">
                 oi, sou a<br />
-                <span className="bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent">
-                  ~/dev.gata
-                </span>
+                <span className="text-pink">~/dev.gata</span>
                 <span className="caret" />
               </h1>
-              <p className="mt-6 text-lg text-muted-foreground max-w-xl">
+              <p className="mt-6 text-lg text-paper/70 max-w-xl">
                 front-end dev migrando pra UX. desenho interfaces com carinho, escrevo código
                 limpo e junto tudo isso numa vibe meio quarto adolescente ano 2003.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a href="#projetos" className="sticker-card sticker-card-hover px-5 py-2.5 font-mono text-sm bg-ink text-white">
+                <a href="#projetos" className="px-5 py-2.5 font-mono text-sm bg-pink text-ink border-2 border-pink rounded-lg hover:bg-paper hover:border-paper transition">
                   ver projetos →
                 </a>
-                <a href="#contato" className="sticker-card sticker-card-hover px-5 py-2.5 font-mono text-sm">
+                <a href="#contato" className="px-5 py-2.5 font-mono text-sm border-2 border-paper/40 text-paper rounded-lg hover:border-paper hover:bg-paper/10 transition">
                   falar comigo
                 </a>
               </div>
@@ -56,8 +54,8 @@ function HomePage() {
 
             {/* banner dinâmico: janela de código + polaroid + sticker */}
             <div className="relative h-[420px]">
-              <div className="absolute top-0 right-0 w-full max-w-sm sticker-card overflow-hidden">
-                <div className="flex items-center gap-1.5 bg-purple-soft px-3 py-2 border-b-2 border-ink">
+              <div className="absolute top-0 right-0 w-full max-w-sm rounded-lg overflow-hidden border-2 border-paper/20 bg-white text-ink">
+                <div className="flex items-center gap-1.5 bg-purple-soft px-3 py-2 border-b-2 border-ink/20">
                   <span className="w-3 h-3 rounded-full bg-pink" />
                   <span className="w-3 h-3 rounded-full bg-purple" />
                   <span className="w-3 h-3 rounded-full bg-ink" />
@@ -94,10 +92,10 @@ function HomePage() {
         </div>
 
         {/* marquee tipo fita cassete */}
-        <div className="border-y-2 border-ink bg-ink text-paper overflow-hidden py-3">
+        <div className="border-t border-paper/10 bg-pink text-ink overflow-hidden py-3">
           <div className="flex animate-marquee whitespace-nowrap">
             {[...marqueeItems, ...marqueeItems].map((w, i) => (
-              <span key={i} className="mx-6 font-mono text-sm uppercase tracking-widest">
+              <span key={i} className="mx-6 font-mono text-sm uppercase tracking-widest font-bold">
                 ✦ {w}
               </span>
             ))}
