@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { projects } from "@/lib/portfolio-data";
+import { projects, type Project } from "@/lib/portfolio-data";
 import catSticker from "@/assets/cat-sticker.png";
 
 export const Route = createFileRoute("/projetos/$slug")({
@@ -42,7 +42,7 @@ function ProjectNotFound() {
 }
 
 function ProjectPage() {
-  const { project } = Route.useLoaderData();
+  const { project } = Route.useLoaderData() as { project: Project };
 
   return (
     <div className="min-h-screen">
