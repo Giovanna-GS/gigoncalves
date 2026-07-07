@@ -32,11 +32,20 @@ function ProjectNotFound() {
       <div className="max-w-2xl mx-auto px-4 py-32 text-center">
         <h1 className="text-4xl font-bold">Projeto não encontrado 🙀</h1>
         <p className="mt-3 text-muted-foreground">Talvez o gato tenha derrubado esse arquivo…</p>
-        <Link to="/" className="mt-6 inline-block sticker-card sticker-card-hover px-5 py-2 font-mono">
+        <Link to="/" className="mt-6 inline-block px-5 py-2 font-mono border-2 border-ink rounded-lg hover:bg-ink hover:text-paper transition">
           ← voltar
         </Link>
       </div>
       <SiteFooter />
+    </div>
+  );
+}
+
+function SectionLabel({ n, children }: { n: string; children: React.ReactNode }) {
+  return (
+    <div className="flex items-center gap-3 mb-3">
+      <span className="font-mono text-xs px-2 py-1 rounded bg-ink text-paper">{n}</span>
+      <span className="font-mono text-xs uppercase tracking-widest text-purple">{children}</span>
     </div>
   );
 }
@@ -48,40 +57,42 @@ function ProjectPage() {
     <div className="min-h-screen">
       <SiteHeader />
 
-      {/* HERO */}
-      <section className="max-w-5xl mx-auto px-4 pt-16 pb-8">
-        <Link to="/" className="font-mono text-sm text-muted-foreground hover:text-pink">
-          ← /projetos
-        </Link>
-        <div className="mt-6 grid md:grid-cols-[1.4fr_1fr] gap-8 items-end">
-          <div>
-            <div className="flex gap-2 flex-wrap mb-4">
-              <span className="font-mono text-xs px-2 py-1 rounded-full bg-pink-soft border border-ink/20">
-                {project.year}
-              </span>
-              <span className="font-mono text-xs px-2 py-1 rounded-full bg-purple-soft border border-ink/20">
-                {project.role}
-              </span>
+      {/* HERO escuro */}
+      <section className="bg-ink text-paper">
+        <div className="max-w-5xl mx-auto px-4 pt-16 pb-20">
+          <Link to="/" className="font-mono text-sm text-paper/60 hover:text-pink transition">
+            ← /projetos
+          </Link>
+          <div className="mt-6 grid md:grid-cols-[1.4fr_1fr] gap-8 items-end">
+            <div>
+              <div className="flex gap-2 flex-wrap mb-4">
+                <span className="font-mono text-xs px-2 py-1 rounded-full border border-paper/25 text-paper/80">
+                  {project.year}
+                </span>
+                <span className="font-mono text-xs px-2 py-1 rounded-full border border-paper/25 text-paper/80">
+                  {project.role}
+                </span>
+              </div>
+              <h1 className="text-5xl md:text-7xl font-extrabold leading-none text-paper">
+                {project.title}
+                <span className="text-pink">.</span>
+              </h1>
+              <p className="mt-4 text-lg text-paper/70 max-w-xl">{project.tagline}</p>
             </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold leading-none">
-              {project.title}
-              <span className="text-pink">.</span>
-            </h1>
-            <p className="mt-4 text-lg text-muted-foreground max-w-xl">{project.tagline}</p>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {project.tools.map((t) => (
-              <span key={t} className="sticker-card px-3 py-1.5 font-mono text-xs">
-                {t}
-              </span>
-            ))}
+            <div className="flex flex-wrap gap-2">
+              {project.tools.map((t) => (
+                <span key={t} className="px-3 py-1.5 font-mono text-xs bg-paper/10 border border-paper/20 rounded-md text-paper">
+                  {t}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* COVER */}
-      <section className="max-w-6xl mx-auto px-4 py-8">
-        <div className="sticker-card overflow-hidden">
+      <section className="max-w-6xl mx-auto px-4 -mt-10">
+        <div className="border-2 border-ink rounded-lg overflow-hidden bg-white">
           <img
             src={project.cover}
             alt={project.title}
@@ -93,14 +104,14 @@ function ProjectPage() {
       </section>
 
       {/* DESAFIO */}
-      <section className="max-w-3xl mx-auto px-4 py-16">
-        <span className="font-mono text-xs uppercase tracking-widest text-purple">01 / desafio</span>
-        <h2 className="mt-2 text-3xl md:text-4xl font-extrabold">O desafio</h2>
-        <p className="mt-4 text-lg text-muted-foreground">{project.challenge}</p>
-      </section>
+      <article className="max-w-3xl mx-auto px-4 py-20">
+        <SectionLabel n="01">desafio</SectionLabel>
+        <h2 className="text-3xl md:text-4xl font-extrabold">O desafio</h2>
+        <p className="mt-5 text-lg leading-relaxed text-foreground/80">{project.challenge}</p>
+      </article>
 
       {/* IMAGEM HORIZONTAL WIDE */}
-      <section className="w-full py-8">
+      <section className="w-full">
         <div className="relative">
           <img
             src={project.wide}
@@ -108,7 +119,7 @@ function ProjectPage() {
             width={1920}
             height={800}
             loading="lazy"
-            className="w-full h-[260px] md:h-[420px] object-cover border-y-2 border-ink"
+            className="w-full h-[280px] md:h-[440px] object-cover border-y-2 border-ink"
           />
           <img
             src={catSticker}
@@ -121,25 +132,25 @@ function ProjectPage() {
       </section>
 
       {/* PROBLEMA */}
-      <section className="max-w-3xl mx-auto px-4 py-16">
-        <span className="font-mono text-xs uppercase tracking-widest text-purple">02 / problema</span>
-        <h2 className="mt-2 text-3xl md:text-4xl font-extrabold">O problema real</h2>
-        <p className="mt-4 text-lg text-muted-foreground">{project.problem}</p>
-      </section>
+      <article className="max-w-3xl mx-auto px-4 py-20">
+        <SectionLabel n="02">problema</SectionLabel>
+        <h2 className="text-3xl md:text-4xl font-extrabold">O problema real</h2>
+        <p className="mt-5 text-lg leading-relaxed text-foreground/80">{project.problem}</p>
+      </article>
 
       {/* PROCESSO + IMAGEM DETALHE */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
+      <section className="max-w-6xl mx-auto px-4 py-8">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="font-mono text-xs uppercase tracking-widest text-purple">03 / processo</span>
-            <h2 className="mt-2 text-3xl md:text-4xl font-extrabold">Como cheguei lá</h2>
+            <SectionLabel n="03">processo</SectionLabel>
+            <h2 className="text-3xl md:text-4xl font-extrabold">Como cheguei lá</h2>
             <ol className="mt-6 space-y-4">
-              {project.process.map((step, i) => (
+              {project.process.map((step: string, i: number) => (
                 <li key={i} className="flex gap-4">
-                  <span className="shrink-0 w-8 h-8 rounded-full bg-pink text-white font-mono font-bold flex items-center justify-center text-sm">
+                  <span className="shrink-0 w-8 h-8 rounded-full bg-pink text-ink font-mono font-bold flex items-center justify-center text-sm border-2 border-ink">
                     {i + 1}
                   </span>
-                  <p className="pt-1 text-muted-foreground">{step}</p>
+                  <p className="pt-1 text-foreground/80">{step}</p>
                 </li>
               ))}
             </ol>
@@ -159,44 +170,45 @@ function ProjectPage() {
         </div>
       </section>
 
-      {/* SOLUÇÃO */}
-      <section className="bg-gradient-to-br from-pink-soft to-purple-soft py-20">
-        <div className="max-w-3xl mx-auto px-4">
-          <span className="font-mono text-xs uppercase tracking-widest text-purple">04 / solução</span>
-          <h2 className="mt-2 text-3xl md:text-4xl font-extrabold">A solução</h2>
-          <p className="mt-4 text-lg">{project.solution}</p>
+      {/* SOLUÇÃO — bloco escuro sólido */}
+      <section className="bg-ink text-paper mt-16">
+        <div className="max-w-3xl mx-auto px-4 py-20">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="font-mono text-xs px-2 py-1 rounded bg-pink text-ink">04</span>
+            <span className="font-mono text-xs uppercase tracking-widest text-pink">solução</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-paper">A solução</h2>
+          <p className="mt-5 text-lg leading-relaxed text-paper/80">{project.solution}</p>
         </div>
       </section>
 
-      {/* RESULTADOS */}
-      <section className="max-w-5xl mx-auto px-4 py-20">
-        <span className="font-mono text-xs uppercase tracking-widest text-purple">05 / resultados</span>
-        <h2 className="mt-2 text-3xl md:text-4xl font-extrabold mb-10">Resultados</h2>
-        <div className="grid sm:grid-cols-3 gap-5">
-          {project.results.map((r, i) => (
-            <div
-              key={r.label}
-              className="sticker-card p-8 text-center"
-              style={{ transform: `rotate(${i === 1 ? 0 : i === 0 ? -1.5 : 1.5}deg)` }}
-            >
-              <div className="font-mono text-5xl font-extrabold bg-gradient-to-br from-pink to-purple bg-clip-text text-transparent">
-                {r.value}
-              </div>
-              <div className="mt-2 font-mono text-sm uppercase tracking-widest text-muted-foreground">
-                {r.label}
-              </div>
-            </div>
+      {/* RESULTADOS — texto corrido */}
+      <article className="max-w-3xl mx-auto px-4 py-20">
+        <SectionLabel n="05">resultados</SectionLabel>
+        <h2 className="text-3xl md:text-4xl font-extrabold">Resultados</h2>
+        <div className="mt-5 space-y-4 text-lg leading-relaxed text-foreground/80">
+          {project.results.map((r) => (
+            <p key={r.label}>
+              <span className="font-mono font-bold text-ink">{r.label}:</span>{" "}
+              <span className="text-pink font-bold">{r.value}</span>. Depois da entrega, esse foi um dos
+              indicadores que se moveu de forma mais consistente ao longo dos meses seguintes.
+            </p>
           ))}
+          <p>
+            No geral, o projeto validou a hipótese de que empatia e clareza no fluxo são mais eficazes que
+            adicionar novas features. O time seguiu iterando em cima da base entregue, e a documentação
+            gerada durante o processo virou referência interna pra próximos redesigns.
+          </p>
         </div>
-      </section>
+      </article>
 
-      {/* NAVEGAÇÃO ENTRE PROJETOS */}
-      <section className="max-w-5xl mx-auto px-4 py-16">
+      {/* NAVEGAÇÃO */}
+      <section className="max-w-5xl mx-auto px-4 pb-20">
         <div className="border-t-2 border-ink/10 pt-8 flex flex-wrap items-center justify-between gap-4">
-          <Link to="/" className="sticker-card sticker-card-hover px-4 py-2 font-mono text-sm">
+          <Link to="/" className="px-4 py-2 font-mono text-sm border-2 border-ink rounded-lg hover:bg-ink hover:text-paper transition">
             ← todos os projetos
           </Link>
-          <a href="#contato" className="sticker-card sticker-card-hover px-5 py-2.5 font-mono text-sm bg-ink text-white">
+          <a href="/#contato" className="px-5 py-2.5 font-mono text-sm bg-pink text-ink border-2 border-ink rounded-lg hover:bg-ink hover:text-paper transition">
             gostou? bora conversar ♡
           </a>
         </div>
