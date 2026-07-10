@@ -48,7 +48,7 @@ function HomePage() {
                   ver projetos →
                 </a>
                 <a href="#contato" className="px-5 py-2.5 font-mono text-sm border-2 border-paper/40 text-paper rounded-lg hover:border-paper hover:bg-paper/10 transition">
-                  falar comigo
+                  currículo
                 </a>
               </div>
             </div>
