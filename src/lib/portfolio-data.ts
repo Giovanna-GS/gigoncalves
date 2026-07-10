@@ -128,21 +128,21 @@ export const specialties = [
   {
     title: "UX Research",
     desc: "Entrevistas, testes moderados, análise de sessão e síntese em insights acionáveis.",
-    emoji: "🔍",
+    icon: "Search",
   },
   {
     title: "UI Design",
     desc: "Interfaces com hierarquia clara, componentes consistentes e um toque de personalidade.",
-    emoji: "💅",
+    icon: "Palette",
   },
   {
     title: "Front-end",
     desc: "React, TypeScript e CSS moderno pra transformar Figma em produto de verdade.",
-    emoji: "💻",
+    icon: "Code2",
   },
   {
     title: "Design System",
     desc: "Tokens, componentes documentados e a ponte entre design e código.",
-    emoji: "🧩",
+    icon: "Component",
   },
 ];
