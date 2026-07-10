@@ -240,14 +240,19 @@ function HomePage() {
 
           {/* Direita: skills */}
           <div className="sticker-card p-6">
-            <h3 className="font-mono text-sm uppercase tracking-widest text-pink mb-4">✨ skills</h3>
+            <h3 className="font-mono text-sm uppercase tracking-widest text-pink mb-4">✧ skills</h3>
             <div className="grid grid-cols-2 gap-3">
-              {journey.skills.map((s) => (
-                <div key={s.name} className="flex items-center gap-3 p-3 rounded-lg bg-pink-soft/50 border border-ink/10 hover:bg-pink-soft transition">
-                  <span className="text-2xl" aria-hidden>{s.icon}</span>
-                  <span className="font-mono text-sm font-medium">{s.name}</span>
-                </div>
-              ))}
+              {journey.skills.map((s) => {
+                const LucideIcon = icons[s.icon as keyof typeof icons];
+                return (
+                  <div key={s.name} className="flex items-center gap-3 p-3 rounded-lg bg-pink-soft/50 border border-ink/10 hover:bg-pink-soft transition">
+                    <span className="w-8 h-8 flex items-center justify-center rounded-md bg-paper border border-ink/20 text-purple shrink-0" aria-hidden>
+                      {LucideIcon ? <LucideIcon size={18} strokeWidth={2} /> : null}
+                    </span>
+                    <span className="font-mono text-sm font-medium">{s.name}</span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
