@@ -138,11 +138,33 @@ function ProjectPage() {
         <p className="mt-5 text-lg leading-relaxed text-foreground/80">{project.problem}</p>
       </article>
 
+      {/* DESIGN + PALETA */}
+      <article className="max-w-3xl mx-auto px-4 py-8">
+        <SectionLabel n="03">design</SectionLabel>
+        <h2 className="text-3xl md:text-4xl font-extrabold">Decisões visuais</h2>
+        <p className="mt-5 text-lg leading-relaxed text-foreground/80">{project.design}</p>
+      </article>
+
+      <section className="max-w-6xl mx-auto px-4 pb-20">
+        <div className="polaroid rotate-[-1deg]">
+          <span className="tape" />
+          <img
+            src={project.palette}
+            alt="Paleta de cores do projeto"
+            width={1024}
+            height={512}
+            loading="lazy"
+            className="w-full aspect-[16/9] object-cover"
+          />
+          <p className="mt-2 text-center font-mono text-sm">paleta de cores</p>
+        </div>
+      </section>
+
       {/* PROCESSO + IMAGEM DETALHE */}
       <section className="max-w-6xl mx-auto px-4 py-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <SectionLabel n="03">processo</SectionLabel>
+            <SectionLabel n="04">processo</SectionLabel>
             <h2 className="text-3xl md:text-4xl font-extrabold">Como cheguei lá</h2>
             <ol className="mt-6 space-y-4">
               {project.process.map((step: string, i: number) => (
@@ -174,7 +196,7 @@ function ProjectPage() {
       <section className="bg-ink text-paper mt-16">
         <div className="max-w-3xl mx-auto px-4 py-20">
           <div className="flex items-center gap-3 mb-3">
-            <span className="font-mono text-xs px-2 py-1 rounded bg-pink text-ink">04</span>
+            <span className="font-mono text-xs px-2 py-1 rounded bg-pink text-ink">05</span>
             <span className="font-mono text-xs uppercase tracking-widest text-pink">solução</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold text-paper">A solução</h2>
@@ -184,7 +206,7 @@ function ProjectPage() {
 
       {/* RESULTADOS — texto corrido */}
       <article className="max-w-3xl mx-auto px-4 py-20">
-        <SectionLabel n="05">resultados</SectionLabel>
+        <SectionLabel n="06">resultados</SectionLabel>
         <h2 className="text-3xl md:text-4xl font-extrabold">Resultados</h2>
         <div className="mt-5 space-y-4 text-lg leading-relaxed text-foreground/80">
           {project.results.map((r) => (
