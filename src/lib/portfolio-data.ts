@@ -3,6 +3,7 @@ import project1Wide from "@/assets/project-1-wide.jpg";
 import project1Detail from "@/assets/project-1-detail.jpg";
 import project2Cover from "@/assets/project-2-cover.jpg";
 import project3Cover from "@/assets/project-3-cover.jpg";
+import palettePlaceholder from "@/assets/palette.png";
 
 export type Project = {
   slug: string;
