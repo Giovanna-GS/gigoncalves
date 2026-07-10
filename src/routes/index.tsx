@@ -130,23 +130,25 @@ function HomePage() {
                 colo do meu gato.
               </p>
             </div>
-            <div className="mt-8 grid grid-cols-2 gap-3 max-w-md">
-              <a href="mailto:oi@meow.dev" className="sticker-card sticker-card-hover px-4 py-3 font-mono text-sm">
-                <div className="text-xs text-muted-foreground">email</div>
-                <div>oi@meow.dev</div>
-              </a>
-              <a href="#" className="sticker-card sticker-card-hover px-4 py-3 font-mono text-sm">
-                <div className="text-xs text-muted-foreground">linkedin</div>
-                <div>/in/meow</div>
-              </a>
-              <a href="#" className="sticker-card sticker-card-hover px-4 py-3 font-mono text-sm">
-                <div className="text-xs text-muted-foreground">github</div>
-                <div>@meow</div>
-              </a>
-              <a href="#" className="sticker-card sticker-card-hover px-4 py-3 font-mono text-sm">
-                <div className="text-xs text-muted-foreground">behance</div>
-                <div>/meow</div>
-              </a>
+            <div className="mt-8 flex flex-wrap gap-3">
+              {[
+                { Icon: Mail, label: "email", href: "mailto:oi@meow.dev" },
+                { Icon: Linkedin, label: "linkedin", href: "https://linkedin.com/in/meow" },
+                { Icon: Github, label: "github", href: "https://github.com/meow" },
+                { Icon: MessageCircle, label: "whatsapp", href: "https://wa.me/5511999999999" },
+              ].map(({ Icon, label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel="noreferrer"
+                  aria-label={label}
+                  title={label}
+                  className="sticker-card sticker-card-hover w-14 h-14 flex items-center justify-center text-ink hover:text-pink transition-colors"
+                >
+                  <Icon size={22} strokeWidth={2} />
+                </a>
+              ))}
             </div>
           </div>
         </div>
