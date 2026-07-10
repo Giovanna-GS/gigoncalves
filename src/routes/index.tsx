@@ -161,9 +161,6 @@ function HomePage() {
             <span className="font-mono text-xs uppercase tracking-widest text-purple">/* projetos */</span>
             <h2 className="mt-2 text-4xl md:text-5xl font-extrabold">coisas que eu construí</h2>
           </div>
-          <p className="text-sm text-muted-foreground max-w-sm">
-            casos de UX e front-end. clica pra ver o processo inteiro.
-          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
