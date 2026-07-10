@@ -12,11 +12,13 @@ export type Project = {
   cover: string;
   wide: string;
   detail: string;
+  palette: string;
   year: string;
   role: string;
   tools: string[];
   challenge: string;
   problem: string;
+  design: string;
   process: string[];
   solution: string;
   results: { label: string; value: string }[];
@@ -30,6 +32,7 @@ export const projects: Project[] = [
     cover: project1Cover,
     wide: project1Wide,
     detail: project1Detail,
+    palette: palettePlaceholder,
     year: "2025",
     role: "UX Designer & Front-end",
     tools: ["Figma", "React", "Framer Motion"],
@@ -37,6 +40,8 @@ export const projects: Project[] = [
       "Como aproximar tutores em potencial de ONGs pequenas, criando um fluxo de adoção que não parecesse um cadastro burocrático?",
     problem:
       "As plataformas atuais tratam adoção como e-commerce — cards frios, filtros técnicos e zero conexão emocional. ONGs relataram desistência de 68% no meio do formulário.",
+    design:
+      "A paleta gira em torno de rosa e lavanda para transmitir afeto, com preto e off-white dando contraste e legibilidade. A tipografia mistura uma fonte monoespaçada (código) com uma sans-serif limpa, reforçando a identidade de dev que ama design.",
     process: [
       "Entrevistas com 12 tutores e 4 ONGs parceiras",
       "Mapa de empatia + jornada atual do adotante",
