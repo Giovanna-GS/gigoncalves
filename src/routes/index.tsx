@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { projects, journey, specialties } from "@/lib/portfolio-data";
+import { icons, Mail, Linkedin, Github, MessageCircle } from "lucide-react";
 import catSticker from "@/assets/cat-sticker.png";
 import polaroid1 from "@/assets/polaroid-1.jpg";
 import polaroid2 from "@/assets/polaroid-2.jpg";
@@ -129,23 +130,25 @@ function HomePage() {
                 colo do meu gato.
               </p>
             </div>
-            <div className="mt-8 grid grid-cols-2 gap-3 max-w-md">
-              <a href="mailto:oi@meow.dev" className="sticker-card sticker-card-hover px-4 py-3 font-mono text-sm">
-                <div className="text-xs text-muted-foreground">email</div>
-                <div>oi@meow.dev</div>
-              </a>
-              <a href="#" className="sticker-card sticker-card-hover px-4 py-3 font-mono text-sm">
-                <div className="text-xs text-muted-foreground">linkedin</div>
-                <div>/in/meow</div>
-              </a>
-              <a href="#" className="sticker-card sticker-card-hover px-4 py-3 font-mono text-sm">
-                <div className="text-xs text-muted-foreground">github</div>
-                <div>@meow</div>
-              </a>
-              <a href="#" className="sticker-card sticker-card-hover px-4 py-3 font-mono text-sm">
-                <div className="text-xs text-muted-foreground">behance</div>
-                <div>/meow</div>
-              </a>
+            <div className="mt-8 flex flex-wrap gap-3">
+              {[
+                { Icon: Mail, label: "email", href: "mailto:oi@meow.dev" },
+                { Icon: Linkedin, label: "linkedin", href: "https://linkedin.com/in/meow" },
+                { Icon: Github, label: "github", href: "https://github.com/meow" },
+                { Icon: MessageCircle, label: "whatsapp", href: "https://wa.me/5511999999999" },
+              ].map(({ Icon, label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel="noreferrer"
+                  aria-label={label}
+                  title={label}
+                  className="sticker-card sticker-card-hover w-14 h-14 flex items-center justify-center text-ink hover:text-pink transition-colors"
+                >
+                  <Icon size={22} strokeWidth={2} />
+                </a>
+              ))}
             </div>
           </div>
         </div>
@@ -158,9 +161,6 @@ function HomePage() {
             <span className="font-mono text-xs uppercase tracking-widest text-purple">/* projetos */</span>
             <h2 className="mt-2 text-4xl md:text-5xl font-extrabold">coisas que eu construí</h2>
           </div>
-          <p className="text-sm text-muted-foreground max-w-sm">
-            casos de UX e front-end. clica pra ver o processo inteiro.
-          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -240,14 +240,19 @@ function HomePage() {
 
           {/* Direita: skills */}
           <div className="sticker-card p-6">
-            <h3 className="font-mono text-sm uppercase tracking-widest text-pink mb-4">✨ skills</h3>
+            <h3 className="font-mono text-sm uppercase tracking-widest text-pink mb-4">✧ skills</h3>
             <div className="grid grid-cols-2 gap-3">
-              {journey.skills.map((s) => (
-                <div key={s.name} className="flex items-center gap-3 p-3 rounded-lg bg-pink-soft/50 border border-ink/10 hover:bg-pink-soft transition">
-                  <span className="text-2xl" aria-hidden>{s.icon}</span>
-                  <span className="font-mono text-sm font-medium">{s.name}</span>
-                </div>
-              ))}
+              {journey.skills.map((s) => {
+                const LucideIcon = icons[s.icon as keyof typeof icons];
+                return (
+                  <div key={s.name} className="flex items-center gap-3 p-3 rounded-lg bg-pink-soft/50 border border-ink/10 hover:bg-pink-soft transition">
+                    <span className="w-8 h-8 flex items-center justify-center rounded-md bg-paper border border-ink/20 text-purple shrink-0" aria-hidden>
+                      {LucideIcon ? <LucideIcon size={18} strokeWidth={2} /> : null}
+                    </span>
+                    <span className="font-mono text-sm font-medium">{s.name}</span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -260,17 +265,22 @@ function HomePage() {
           <h2 className="mt-2 text-4xl md:text-5xl font-extrabold">no que eu sou boa</h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {specialties.map((s, i) => (
-            <div
-              key={s.title}
-              className="sticker-card sticker-card-hover p-6"
-              style={{ transform: `rotate(${i % 2 === 0 ? "-1.5deg" : "1.5deg"})` }}
-            >
-              <div className="text-4xl mb-3">{s.emoji}</div>
-              <h3 className="font-bold text-lg mb-2">{s.title}</h3>
-              <p className="text-sm text-muted-foreground">{s.desc}</p>
-            </div>
-          ))}
+          {specialties.map((s, i) => {
+            const LucideIcon = icons[s.icon as keyof typeof icons];
+            return (
+              <div
+                key={s.title}
+                className="sticker-card sticker-card-hover p-6"
+                style={{ transform: `rotate(${i % 2 === 0 ? "-1.5deg" : "1.5deg"})` }}
+              >
+                <div className="w-12 h-12 mb-3 flex items-center justify-center rounded-lg bg-pink-soft border-2 border-ink text-ink">
+                  {LucideIcon ? <LucideIcon size={24} strokeWidth={2} /> : null}
+                </div>
+                <h3 className="font-bold text-lg mb-2">{s.title}</h3>
+                <p className="text-sm text-muted-foreground">{s.desc}</p>
+              </div>
+            );
+          })}
         </div>
       </section>
 
