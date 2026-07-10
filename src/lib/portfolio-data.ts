@@ -113,14 +113,14 @@ export const journey = {
     { year: "2019 → 2023", place: "Bacharelado em Sistemas de Informação", note: "TCC sobre acessibilidade cognitiva." },
   ],
   skills: [
-    { name: "Figma", icon: "🎨" },
-    { name: "React", icon: "⚛️" },
-    { name: "TypeScript", icon: "🧠" },
-    { name: "Tailwind", icon: "🌬️" },
-    { name: "UX Research", icon: "🔎" },
-    { name: "Prototipação", icon: "🧪" },
-    { name: "Design System", icon: "🧱" },
-    { name: "Acessibilidade", icon: "♿" },
+    { name: "Figma", icon: "Figma" },
+    { name: "React", icon: "Atom" },
+    { name: "TypeScript", icon: "Braces" },
+    { name: "Tailwind", icon: "Wind" },
+    { name: "UX Research", icon: "Search" },
+    { name: "Prototipação", icon: "MousePointerClick" },
+    { name: "Design System", icon: "Component" },
+    { name: "Acessibilidade", icon: "Accessibility" },
   ],
 };
 
