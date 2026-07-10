@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { projects, journey, specialties } from "@/lib/portfolio-data";
+import { icons, Mail, Linkedin, Github, MessageCircle } from "lucide-react";
 import catSticker from "@/assets/cat-sticker.png";
 import polaroid1 from "@/assets/polaroid-1.jpg";
 import polaroid2 from "@/assets/polaroid-2.jpg";
