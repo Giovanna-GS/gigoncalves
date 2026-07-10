@@ -63,12 +63,15 @@ export const projects: Project[] = [
     cover: project2Cover,
     wide: project1Wide,
     detail: project1Detail,
+    palette: palettePlaceholder,
     year: "2024",
     role: "UX/UI Designer",
     tools: ["Figma", "Maze", "Hotjar"],
     challenge: "Reduzir abandono no checkout mobile, que estava em 74%.",
     problem:
       "Fluxo de 6 telas com campos redundantes, sem indicadores claros de progresso e frete calculado só no final.",
+    design:
+      "Cores sóbrias e tons de cinza quente para não competir com os produtos pet. O rosa aparece como destaque nos botões principais e no indicador de progresso, criando ritmo visual sem exageros.",
     process: [
       "Análise heurística do fluxo existente",
       "Session replay de 200 usuários",
@@ -88,12 +91,15 @@ export const projects: Project[] = [
     cover: project3Cover,
     wide: project1Wide,
     detail: project1Detail,
+    palette: palettePlaceholder,
     year: "2024",
     role: "Front-end + UX",
     tools: ["React", "Figma", "Recharts"],
     challenge: "Unificar 3 sistemas legados em uma única interface pra franqueados.",
     problem:
       "Gestores usavam planilhas, WhatsApp e um ERP dos anos 2000 pra rodar a operação. Zero visibilidade consolidada.",
+    design:
+      "Dashboard precisava de densidade de informação sem cansaço visual. A paleta usa roxo para dados, rosa para alertas e preto só na tipografia, mantendo a interface limpa e escaneável.",
     process: [
       "Workshop de co-criação com 6 franqueados",
       "Auditoria dos 3 sistemas atuais",
