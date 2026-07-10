@@ -265,17 +265,22 @@ function HomePage() {
           <h2 className="mt-2 text-4xl md:text-5xl font-extrabold">no que eu sou boa</h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {specialties.map((s, i) => (
-            <div
-              key={s.title}
-              className="sticker-card sticker-card-hover p-6"
-              style={{ transform: `rotate(${i % 2 === 0 ? "-1.5deg" : "1.5deg"})` }}
-            >
-              <div className="text-4xl mb-3">{s.emoji}</div>
-              <h3 className="font-bold text-lg mb-2">{s.title}</h3>
-              <p className="text-sm text-muted-foreground">{s.desc}</p>
-            </div>
-          ))}
+          {specialties.map((s, i) => {
+            const LucideIcon = icons[s.icon as keyof typeof icons];
+            return (
+              <div
+                key={s.title}
+                className="sticker-card sticker-card-hover p-6"
+                style={{ transform: `rotate(${i % 2 === 0 ? "-1.5deg" : "1.5deg"})` }}
+              >
+                <div className="w-12 h-12 mb-3 flex items-center justify-center rounded-lg bg-pink-soft border-2 border-ink text-ink">
+                  {LucideIcon ? <LucideIcon size={24} strokeWidth={2} /> : null}
+                </div>
+                <h3 className="font-bold text-lg mb-2">{s.title}</h3>
+                <p className="text-sm text-muted-foreground">{s.desc}</p>
+              </div>
+            );
+          })}
         </div>
       </section>
 
