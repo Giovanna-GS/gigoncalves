@@ -10,16 +10,18 @@ const contacts = [
 
 export function SiteFooter() {
   return (
-    <footer id="contato" className="mt-24 bg-ink text-paper">
-      <div className="max-w-6xl mx-auto px-4 py-16">
+    <footer id="contato" className="mt-24 stars text-paper relative overflow-hidden">
+      <span className="pointer-events-none absolute top-8 left-[10%] text-pink text-lg animate-twinkle">✦</span>
+      <span className="pointer-events-none absolute bottom-16 right-[15%] text-paper text-sm animate-twinkle" style={{ animationDelay: "0.8s" }}>✧</span>
+      <div className="max-w-6xl mx-auto px-4 py-16 relative">
         <div className="grid md:grid-cols-3 gap-10">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <img src={catSticker} alt="" width={40} height={40} className="invert" />
+              <img src={catSticker} alt="" width={40} height={40} className="drop-shadow-[0_0_12px_oklch(0.72_0.19_350/0.6)]" />
               <span className="font-mono font-bold text-xl text-paper">meow<span className="text-pink">.</span>dev</span>
             </div>
             <p className="text-sm text-paper/60 max-w-xs">
-              Um cantinho da internet feito com café, gato no colo e muito CSS.
+              Um cantinho da internet feito com café, gato no colo e poeira estelar.
             </p>
           </div>
           <div>
@@ -46,7 +48,7 @@ export function SiteFooter() {
           <div>
             <h4 className="font-mono text-sm uppercase tracking-widest mb-3 text-pink">Agora</h4>
             <p className="text-sm text-paper/70">
-              Aberta pra oportunidades em UX ✿<br />
+              Aberta pra oportunidades em UX ✦<br />
               Baseada em São Paulo, remoto ok.
             </p>
           </div>
