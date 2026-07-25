@@ -25,14 +25,20 @@ function HomePage() {
     <div className="min-h-screen">
       <SiteHeader />
 
-      {/* HERO / BANNER DINÂMICO — seção escura */}
-      <section className="relative overflow-hidden bg-ink text-paper">
-        <div className="max-w-6xl mx-auto px-4 pt-16 pb-24 md:pt-24 md:pb-32">
+      {/* HERO / BANNER — galáxia + CRT boot */}
+      <section className="relative overflow-hidden stars text-paper">
+        {/* estrelinhas piscando */}
+        <span className="pointer-events-none absolute top-10 left-[8%] text-pink text-lg animate-twinkle">✦</span>
+        <span className="pointer-events-none absolute top-24 right-[12%] text-paper text-sm animate-twinkle" style={{ animationDelay: "0.6s" }}>✧</span>
+        <span className="pointer-events-none absolute bottom-24 left-[20%] text-purple-soft text-xl animate-twinkle" style={{ animationDelay: "1.1s" }}>✦</span>
+        <span className="pointer-events-none absolute bottom-10 right-[25%] text-paper text-xs animate-twinkle" style={{ animationDelay: "1.6s" }}>✧</span>
+
+        <div className="max-w-6xl mx-auto px-4 pt-16 pb-24 md:pt-24 md:pb-32 relative">
           <div className="grid md:grid-cols-[1.4fr_1fr] gap-10 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-paper/30 px-3 py-1 mb-6 font-mono text-xs text-paper/80">
+              <div className="inline-flex items-center gap-2 rounded-full border border-paper/30 px-3 py-1 mb-6 font-mono text-xs text-paper/80 backdrop-blur-sm">
                 <span className="w-2 h-2 rounded-full bg-pink animate-pulse" />
-                disponível pra projetos ✿
+                disponível pra projetos ✦
               </div>
               <h1 className="font-mono font-extrabold text-5xl md:text-7xl leading-[0.95] tracking-tight text-paper">
                 oi, sou a<br />
@@ -41,7 +47,7 @@ function HomePage() {
               </h1>
               <p className="mt-6 text-lg text-paper/70 max-w-xl">
                 front-end dev migrando pra UX. desenho interfaces com carinho, escrevo código
-                limpo e junto tudo isso numa vibe meio quarto adolescente ano 2003.
+                limpo e junto tudo isso numa vibe meio quarto adolescente ano 2003, com pitada de galáxia.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href="#projetos" className="px-5 py-2.5 font-mono text-sm bg-pink text-ink border-2 border-pink rounded-lg hover:bg-paper hover:border-paper transition">
@@ -53,23 +59,38 @@ function HomePage() {
               </div>
             </div>
 
-            {/* banner dinâmico: janela de código + polaroid + sticker */}
-            <div className="relative h-[420px]">
-              <div className="absolute top-0 right-0 w-full max-w-sm rounded-lg overflow-hidden border-2 border-paper/20 bg-white text-ink">
-                <div className="flex items-center gap-1.5 bg-purple-soft px-3 py-2 border-b-2 border-ink/20">
-                  <span className="w-3 h-3 rounded-full bg-pink" />
-                  <span className="w-3 h-3 rounded-full bg-purple" />
-                  <span className="w-3 h-3 rounded-full bg-ink" />
-                  <span className="ml-2 font-mono text-xs">portfolio.tsx</span>
-                </div>
-                <pre className="p-4 font-mono text-[13px] leading-relaxed overflow-hidden">
-<span className="text-purple">const</span> <span className="text-pink">me</span> = {"{"}
-{"\n"}  role: <span className="text-purple">"UX + FE"</span>,
-{"\n"}  loves: [<span className="text-purple">"gato"</span>,
-{"\n"}    <span className="text-purple">"pixel"</span>],
-{"\n"}  fuel: <span className="text-pink">☕ + ♡</span>,
+            {/* CRT boot: janela de código dentro de um monitor antigo */}
+            <div className="relative h-[440px]">
+              {/* moldura de monitor CRT */}
+              <div
+                className="absolute top-0 right-0 w-full max-w-sm rounded-2xl p-3"
+                style={{
+                  background: "linear-gradient(160deg, oklch(0.28 0.02 300), oklch(0.18 0.02 300))",
+                  boxShadow: "0 20px 40px -10px oklch(0 0 0 / 0.6), inset 0 2px 0 oklch(1 0 0 / 0.08)",
+                }}
+              >
+                <div className="crt bg-black">
+                  <div className="crt-roll" />
+                  <div className="relative z-[1] bg-black text-paper">
+                    <div className="flex items-center gap-1.5 bg-purple/40 px-3 py-2 border-b border-paper/20">
+                      <span className="w-3 h-3 rounded-full bg-pink" />
+                      <span className="w-3 h-3 rounded-full bg-purple-soft" />
+                      <span className="w-3 h-3 rounded-full bg-paper/60" />
+                      <span className="ml-2 font-mono text-xs text-paper/80">portfolio.tsx</span>
+                    </div>
+                    <pre className="p-4 font-mono text-[13px] leading-relaxed overflow-hidden text-paper">
+<span className="text-purple-soft">const</span> <span className="text-pink">me</span> = {"{"}
+{"\n"}  role: <span className="text-purple-soft">"UX + FE"</span>,
+{"\n"}  loves: [<span className="text-purple-soft">"galáxia"</span>,
+{"\n"}    <span className="text-purple-soft">"pixel"</span>],
+{"\n"}  fuel: <span className="text-pink">☕ + ✦</span>,
 {"\n"}{"}"}<span className="caret" />
-                </pre>
+                    </pre>
+                  </div>
+                </div>
+                {/* base do monitor */}
+                <div className="mx-auto mt-2 h-3 w-2/3 rounded-b-lg" style={{ background: "oklch(0.22 0.02 300)" }} />
+                <div className="mx-auto mt-1 h-2 w-1/3 rounded-b-md" style={{ background: "oklch(0.28 0.02 300)" }} />
               </div>
 
               <div
@@ -78,7 +99,7 @@ function HomePage() {
               >
                 <span className="tape" />
                 <img src={polaroid2} alt="Gato dormindo no teclado" width={768} height={768} className="w-full aspect-square object-cover" loading="lazy" />
-                <p className="mt-2 text-center font-mono text-xs text-muted-foreground">meu QA principal 🐾</p>
+                <p className="mt-2 text-center font-mono text-xs text-muted-foreground">meu QA principal ✦</p>
               </div>
 
               <img
@@ -86,14 +107,14 @@ function HomePage() {
                 alt=""
                 width={100}
                 height={100}
-                className="absolute -top-4 left-8 w-24 h-24 rotate-12 animate-wiggle"
+                className="absolute -top-4 left-8 w-24 h-24 rotate-12 animate-wiggle drop-shadow-[0_0_18px_oklch(0.72_0.19_350/0.6)]"
               />
             </div>
           </div>
         </div>
 
         {/* marquee tipo fita cassete */}
-        <div className="border-t border-paper/10 bg-pink text-ink overflow-hidden py-3">
+        <div className="relative border-t border-paper/10 bg-pink text-ink overflow-hidden py-3">
           <div className="flex animate-marquee whitespace-nowrap">
             {[...marqueeItems, ...marqueeItems].map((w, i) => (
               <span key={i} className="mx-6 font-mono text-sm uppercase tracking-widest font-bold">
@@ -103,6 +124,7 @@ function HomePage() {
           </div>
         </div>
       </section>
+
 
       {/* SOBRE MIM */}
       <section id="sobre" className="max-w-6xl mx-auto px-4 py-24">
