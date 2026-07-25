@@ -154,13 +154,106 @@
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+@keyframes static-noise {
+  0%   { transform: translate(0,0); }
+  20%  { transform: translate(1%,2%); }
+  40%  { transform: translate(2%,-2%); }
+  60%  { transform: translate(1%,-1%); }
+  80%  { transform: translate(2%,1%); }
+  100% { transform: translate(0,0); }
+}
+@keyframes crt-boot {
+  0%   { transform: scaleY(0.005); filter: brightness(4); opacity: 0; }
+  8%   { transform: scaleY(0.01); opacity: 1; }
+  18%  { transform: scaleY(0.03); filter: brightness(3); }
+  35%  { transform: scaleY(1); filter: brightness(1.8); }
+  100% { transform: scaleY(1); filter: brightness(1); opacity: 1; }
+}
+@keyframes scanline-drift {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+}
 
 .animate-wiggle { animation: wiggle 3s ease-in-out infinite; }
 .animate-float-y { animation: float-y 4s ease-in-out infinite; }
 .animate-marquee { animation: marquee 30s linear infinite; }
+.animate-twinkle { animation: twinkle 2.4s ease-in-out infinite; }
 .caret::after {
   content: "_";
   color: var(--pink);
   animation: blink-caret 1s steps(1) infinite;
   margin-left: 2px;
+}
+
+/* ---------- CRT / static effects ---------- */
+.crt {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  animation: crt-boot 1.6s cubic-bezier(.2,.8,.2,1) both;
+  box-shadow:
+    0 0 0 2px oklch(1 0 0 / 0.08) inset,
+    0 0 80px oklch(0.55 0.23 300 / 0.35),
+    0 20px 60px -10px oklch(0 0 0 / 0.6);
+}
+.crt::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    oklch(1 0 0 / 0.06) 0 1px,
+    transparent 1px 3px
+  );
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  z-index: 3;
+}
+.crt::after {
+  content: "";
+  position: absolute; inset: -20%;
+  background-image:
+    radial-gradient(oklch(1 0 0 / 0.35) 1px, transparent 1px),
+    radial-gradient(oklch(1 0 0 / 0.25) 1px, transparent 1px);
+  background-size: 3px 3px, 5px 5px;
+  background-position: 0 0, 1px 2px;
+  opacity: 0.14;
+  mix-blend-mode: screen;
+  animation: static-noise 0.5s steps(5) infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+.crt-roll {
+  position: absolute; left: 0; right: 0; top: 0; height: 30%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    oklch(1 0 0 / 0.08) 45%,
+    oklch(1 0 0 / 0.15) 50%,
+    oklch(1 0 0 / 0.08) 55%,
+    transparent 100%
+  );
+  animation: scanline-drift 6s linear infinite;
+  pointer-events: none;
+  z-index: 4;
+  mix-blend-mode: screen;
+}
+
+/* starfield background */
+.stars {
+  background-color: oklch(0.14 0.03 285);
+  background-image:
+    radial-gradient(1px 1px at 12% 20%, white, transparent 60%),
+    radial-gradient(1px 1px at 78% 35%, white, transparent 60%),
+    radial-gradient(1.5px 1.5px at 40% 70%, oklch(0.92 0.06 350), transparent 60%),
+    radial-gradient(1px 1px at 65% 85%, white, transparent 60%),
+    radial-gradient(1px 1px at 25% 55%, oklch(0.9 0.06 300), transparent 60%),
+    radial-gradient(1.5px 1.5px at 88% 12%, white, transparent 60%),
+    radial-gradient(1px 1px at 55% 15%, white, transparent 60%),
+    radial-gradient(1px 1px at 8% 78%, oklch(0.92 0.06 350), transparent 60%),
+    radial-gradient(1200px 600px at 20% 0%, oklch(0.35 0.15 300 / 0.5), transparent 60%),
+    radial-gradient(1000px 500px at 90% 100%, oklch(0.4 0.18 350 / 0.4), transparent 60%);
 }
