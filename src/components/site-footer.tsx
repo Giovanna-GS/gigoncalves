@@ -1,42 +1,40 @@
-import { Mail, Linkedin, Github, MessageCircle } from "lucide-react";
-import catSticker from "@/assets/cat-sticker.png";
+import { Mail, Linkedin, Globe, Phone } from "lucide-react";
+import { PlanetIcon } from "./planet-icon";
 
 const contacts = [
-  { Icon: Mail, label: "email", value: "oi@meow.dev", href: "mailto:oi@meow.dev" },
-  { Icon: Linkedin, label: "linkedin", value: "/in/meow", href: "https://linkedin.com/in/meow" },
-  { Icon: Github, label: "github", value: "@meow", href: "https://github.com/meow" },
-  { Icon: MessageCircle, label: "whatsapp", value: "+55 11 99999-9999", href: "https://wa.me/5511999999999" },
+  { Icon: Mail, label: "email", value: "giovanna.ggs99@gmail.com", href: "mailto:giovanna.ggs99@gmail.com" },
+  { Icon: Linkedin, label: "linkedin", value: "/in/giovanna-goncalves", href: "https://linkedin.com/in/giovanna-goncalves" },
+  { Icon: Globe, label: "portfólio", value: "gigoncalves.framer.website", href: "https://gigoncalves.framer.website" },
+  { Icon: Phone, label: "whatsapp", value: "(11) 98918-9746", href: "https://wa.me/5511989189746" },
 ];
 
 export function SiteFooter() {
   return (
-    <footer id="contato" className="mt-24 stars text-paper relative overflow-hidden">
-      <span className="pointer-events-none absolute top-8 left-[10%] text-pink text-lg animate-twinkle">✦</span>
-      <span className="pointer-events-none absolute bottom-16 right-[15%] text-paper text-sm animate-twinkle" style={{ animationDelay: "0.8s" }}>✧</span>
+    <footer id="contato" className="mt-24 bg-void text-stardust relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 py-16 relative">
         <div className="grid md:grid-cols-3 gap-10">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <img src={catSticker} alt="" width={40} height={40} className="drop-shadow-[0_0_12px_oklch(0.72_0.19_350/0.6)]" />
-              <span className="font-mono font-bold text-xl text-paper">meow<span className="text-pink">.</span>dev</span>
+              <PlanetIcon size={32} className="text-nebula" />
+              <span className="font-mono font-bold text-xl text-stardust">gg<span className="text-cosmic">.</span>dev</span>
             </div>
-            <p className="text-sm text-paper/60 max-w-xs">
-              Um cantinho da internet feito com café, gato no colo e poeira estelar.
+            <p className="text-sm text-stardust/50 max-w-xs">
+              UX/UI Designer & Front-end dev de São Paulo.
             </p>
           </div>
           <div>
-            <h4 className="font-mono text-sm uppercase tracking-widest mb-4 text-pink">Fala comigo</h4>
-            <ul className="space-y-2 text-sm text-paper/80">
+            <h4 className="font-mono text-sm uppercase tracking-widest mb-4 text-cosmic">Fala comigo</h4>
+            <ul className="space-y-2 text-sm text-stardust/70">
               {contacts.map(({ Icon, label, value, href }) => (
                 <li key={label}>
                   <a
                     href={href}
                     target={href.startsWith("http") ? "_blank" : undefined}
                     rel="noreferrer"
-                    className="group inline-flex items-center gap-3 hover:text-pink transition-colors"
+                    className="group inline-flex items-center gap-3 hover:text-cosmic-soft transition-colors"
                     aria-label={label}
                   >
-                    <span className="w-8 h-8 flex items-center justify-center rounded-md border border-paper/20 group-hover:border-pink group-hover:bg-pink/10 transition">
+                    <span className="w-8 h-8 flex items-center justify-center rounded-md border border-stardust/15 group-hover:border-cosmic group-hover:bg-cosmic/10 transition">
                       <Icon size={16} strokeWidth={2} />
                     </span>
                     <span className="font-mono">{value}</span>
@@ -46,15 +44,15 @@ export function SiteFooter() {
             </ul>
           </div>
           <div>
-            <h4 className="font-mono text-sm uppercase tracking-widest mb-3 text-pink">Agora</h4>
-            <p className="text-sm text-paper/70">
-              Aberta pra oportunidades em UX ✦<br />
+            <h4 className="font-mono text-sm uppercase tracking-widest mb-3 text-cosmic">Agora</h4>
+            <p className="text-sm text-stardust/60">
+              Aberta pra oportunidades em UX/UI<br />
               Baseada em São Paulo, remoto ok.
             </p>
           </div>
         </div>
-        <div className="mt-12 pt-6 border-t border-paper/15 flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-paper/50">
-          <span>© {new Date().getFullYear()} meow.dev — feito com ♡ e pêlo de gato</span>
+        <div className="mt-12 pt-6 border-t border-stardust/10 flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-stardust/40">
+          <span>© {new Date().getFullYear()} Giovanna Gonçalves — feito com ☕</span>
           <span className="caret">console.log("bye")</span>
         </div>
       </div>

@@ -116,45 +116,43 @@ export const projects: Project[] = [
 
 export const journey = {
   work: [
-    { year: "2024 → hoje", place: "Freelance UX", note: "Projetos de UX e front-end para ONGs e startups pet." },
-    { year: "2022 → 2024", place: "TechCorp", note: "Desenvolvedora front-end pleno (React + design system)." },
-    { year: "2020 → 2022", place: "Agência Rosa", note: "Front-end júnior, WordPress e sites institucionais." },
+    { year: "Nov 2024 → hoje", place: "Soluções Industriais", note: "Analista Front-end — interfaces responsivas, SEO, performance e IA aplicada a código e design." },
   ],
   study: [
-    { year: "2025", place: "Curso UX Design — Awari", note: "Especialização em UX Research e Design Systems." },
-    { year: "2019 → 2023", place: "Bacharelado em Sistemas de Informação", note: "TCC sobre acessibilidade cognitiva." },
+    { year: "Previsão: Jun/2027", place: "Pós-graduação em UX — Belas Artes", note: "Especialização em User Experience." },
+    { year: "Concluído: Jun/2025", place: "Análise e Desenv. de Sistemas — São Judas Tadeu", note: "Graduação em tecnologia." },
   ],
   skills: [
     { name: "Figma", icon: "Figma" },
-    { name: "React", icon: "Atom" },
-    { name: "TypeScript", icon: "Braces" },
-    { name: "Tailwind", icon: "Wind" },
-    { name: "UX Research", icon: "Search" },
-    { name: "Prototipação", icon: "MousePointerClick" },
-    { name: "Design System", icon: "Component" },
+    { name: "UX/UI Design", icon: "Palette" },
+    { name: "Wireframing", icon: "PenTool" },
+    { name: "Prototipagem", icon: "MousePointerClick" },
+    { name: "HTML / CSS", icon: "Code" },
+    { name: "JavaScript", icon: "Braces" },
     { name: "Acessibilidade", icon: "Accessibility" },
+    { name: "IA Generativa", icon: "Sparkles" },
   ],
 };
 
 export const specialties = [
   {
-    title: "UX Research",
-    desc: "Entrevistas, testes moderados, análise de sessão e síntese em insights acionáveis.",
-    icon: "Search",
-  },
-  {
-    title: "UI Design",
-    desc: "Interfaces com hierarquia clara, componentes consistentes e um toque de personalidade.",
+    title: "UX/UI Design",
+    desc: "Interfaces com hierarquia clara, usabilidade e um toque de personalidade — do wireframe ao pixel final.",
     icon: "Palette",
   },
   {
     title: "Front-end",
-    desc: "React, TypeScript e CSS moderno pra transformar Figma em produto de verdade.",
-    icon: "Code2",
+    desc: "HTML, CSS, JavaScript e PHP pra transformar design em produto funcional e responsivo.",
+    icon: "Code",
   },
   {
-    title: "Design System",
-    desc: "Tokens, componentes documentados e a ponte entre design e código.",
-    icon: "Component",
+    title: "UX Research",
+    desc: "Entrevistas, testes de usabilidade e análise de dados pra guiar decisões de design.",
+    icon: "Search",
+  },
+  {
+    title: "IA + Design",
+    desc: "Inteligência Generativa aplicada a código, exploração visual e produtividade no design.",
+    icon: "Sparkles",
   },
 ];

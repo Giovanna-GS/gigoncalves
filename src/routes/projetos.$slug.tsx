@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { projects, type Project } from "@/lib/portfolio-data";
-import catSticker from "@/assets/cat-sticker.png";
+import { StarIcon } from "@/components/star-icon";
 
 export const Route = createFileRoute("/projetos/$slug")({
   loader: ({ params }) => {
@@ -13,7 +13,7 @@ export const Route = createFileRoute("/projetos/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.project.title} — meow.dev` },
+          { title: `${loaderData.project.title} — Giovanna Gonçalves` },
           { name: "description", content: loaderData.project.tagline },
           { property: "og:title", content: `${loaderData.project.title} — case UX` },
           { property: "og:description", content: loaderData.project.tagline },
@@ -30,9 +30,9 @@ function ProjectNotFound() {
     <div className="min-h-screen">
       <SiteHeader />
       <div className="max-w-2xl mx-auto px-4 py-32 text-center">
-        <h1 className="text-4xl font-bold">Projeto não encontrado 🙀</h1>
-        <p className="mt-3 text-muted-foreground">Talvez o gato tenha derrubado esse arquivo…</p>
-        <Link to="/" className="mt-6 inline-block px-5 py-2 font-mono border-2 border-ink rounded-lg hover:bg-ink hover:text-paper transition">
+        <h1 className="text-4xl font-bold">Projeto não encontrado</h1>
+        <p className="mt-3 text-muted-foreground">Talvez tenha se perdido no cosmos…</p>
+        <Link to="/" className="mt-6 inline-block px-5 py-2 font-mono border-2 border-void rounded-lg hover:bg-void hover:text-stardust transition">
           ← voltar
         </Link>
       </div>
@@ -44,8 +44,8 @@ function ProjectNotFound() {
 function SectionLabel({ n, children }: { n: string; children: React.ReactNode }) {
   return (
     <div className="flex items-center gap-3 mb-3">
-      <span className="font-mono text-xs px-2 py-1 rounded bg-ink text-paper">{n}</span>
-      <span className="font-mono text-xs uppercase tracking-widest text-purple">{children}</span>
+      <span className="font-mono text-xs px-2 py-1 rounded bg-void text-stardust">{n}</span>
+      <span className="font-mono text-xs uppercase tracking-widest text-cosmic">{children}</span>
     </div>
   );
 }
@@ -54,34 +54,36 @@ function ProjectPage() {
   const { project } = Route.useLoaderData() as { project: Project };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen stars-subtle">
       <SiteHeader />
 
-      {/* HERO escuro */}
-      <section className="bg-ink text-paper">
+      {/* HERO */}
+      <section className="bg-void text-stardust">
         <div className="max-w-5xl mx-auto px-4 pt-16 pb-20">
-          <Link to="/" className="font-mono text-sm text-paper/60 hover:text-pink transition">
-            ← /projetos
-          </Link>
+          {/* Breadcrumb */}
+          <nav className="flex items-center gap-2 font-mono text-sm text-stardust/50 mb-8">
+            <Link to="/" className="hover:text-cosmic transition">home</Link>
+            <span className="text-stardust/30">/</span>
+            <span className="text-stardust/80">{project.title}</span>
+          </nav>
           <div className="mt-6 grid md:grid-cols-[1.4fr_1fr] gap-8 items-end">
             <div>
               <div className="flex gap-2 flex-wrap mb-4">
-                <span className="font-mono text-xs px-2 py-1 rounded-full border border-paper/25 text-paper/80">
+                <span className="font-mono text-xs px-2 py-1 rounded-full border border-stardust/20 text-stardust/70">
                   {project.year}
                 </span>
-                <span className="font-mono text-xs px-2 py-1 rounded-full border border-paper/25 text-paper/80">
+                <span className="font-mono text-xs px-2 py-1 rounded-full border border-stardust/20 text-stardust/70">
                   {project.role}
                 </span>
               </div>
-              <h1 className="text-5xl md:text-7xl font-extrabold leading-none text-paper">
-                {project.title}
-                <span className="text-pink">.</span>
+              <h1 className="text-5xl md:text-7xl font-extrabold leading-none text-stardust">
+                {project.title}<span className="text-nebula">.</span>
               </h1>
-              <p className="mt-4 text-lg text-paper/70 max-w-xl">{project.tagline}</p>
+              <p className="mt-4 text-lg text-stardust/60 max-w-xl">{project.tagline}</p>
             </div>
             <div className="flex flex-wrap gap-2">
               {project.tools.map((t) => (
-                <span key={t} className="px-3 py-1.5 font-mono text-xs bg-paper/10 border border-paper/20 rounded-md text-paper">
+                <span key={t} className="px-3 py-1.5 font-mono text-xs bg-stardust/10 border border-stardust/15 rounded-md text-stardust">
                   {t}
                 </span>
               ))}
@@ -92,7 +94,7 @@ function ProjectPage() {
 
       {/* COVER */}
       <section className="max-w-6xl mx-auto px-4 -mt-10">
-        <div className="border-2 border-ink rounded-lg overflow-hidden bg-white">
+        <div className="border-2 border-void rounded-lg overflow-hidden bg-white">
           <img
             src={project.cover}
             alt={project.title}
@@ -110,7 +112,7 @@ function ProjectPage() {
         <p className="mt-5 text-lg leading-relaxed text-foreground/80">{project.challenge}</p>
       </article>
 
-      {/* IMAGEM HORIZONTAL WIDE */}
+      {/* WIDE IMAGE */}
       <section className="w-full">
         <div className="relative">
           <img
@@ -119,14 +121,11 @@ function ProjectPage() {
             width={1920}
             height={800}
             loading="lazy"
-            className="w-full h-[280px] md:h-[440px] object-cover border-y-2 border-ink"
+            className="w-full h-[280px] md:h-[440px] object-cover border-y-2 border-void"
           />
-          <img
-            src={catSticker}
-            alt=""
-            width={80}
-            height={80}
-            className="absolute -bottom-6 right-8 w-20 h-20 rotate-12 animate-wiggle"
+          <StarIcon
+            size={56}
+            className="absolute -bottom-6 right-8 rotate-12 animate-twinkle text-nebula"
           />
         </div>
       </section>
@@ -160,7 +159,7 @@ function ProjectPage() {
         </div>
       </section>
 
-      {/* PROCESSO + IMAGEM DETALHE */}
+      {/* PROCESSO */}
       <section className="max-w-6xl mx-auto px-4 py-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -169,7 +168,7 @@ function ProjectPage() {
             <ol className="mt-6 space-y-4">
               {project.process.map((step: string, i: number) => (
                 <li key={i} className="flex gap-4">
-                  <span className="shrink-0 w-8 h-8 rounded-full bg-pink text-ink font-mono font-bold flex items-center justify-center text-sm border-2 border-ink">
+                  <span className="shrink-0 w-8 h-8 rounded-full bg-nebula text-stardust font-mono font-bold flex items-center justify-center text-sm border-2 border-void">
                     {i + 1}
                   </span>
                   <p className="pt-1 text-foreground/80">{step}</p>
@@ -192,27 +191,27 @@ function ProjectPage() {
         </div>
       </section>
 
-      {/* SOLUÇÃO — bloco escuro sólido */}
-      <section className="bg-ink text-paper mt-16">
+      {/* SOLUÇÃO */}
+      <section className="bg-void text-stardust mt-16">
         <div className="max-w-3xl mx-auto px-4 py-20">
           <div className="flex items-center gap-3 mb-3">
-            <span className="font-mono text-xs px-2 py-1 rounded bg-pink text-ink">05</span>
-            <span className="font-mono text-xs uppercase tracking-widest text-pink">solução</span>
+            <span className="font-mono text-xs px-2 py-1 rounded bg-nebula text-stardust">05</span>
+            <span className="font-mono text-xs uppercase tracking-widest text-nebula">solução</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-paper">A solução</h2>
-          <p className="mt-5 text-lg leading-relaxed text-paper/80">{project.solution}</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-stardust">A solução</h2>
+          <p className="mt-5 text-lg leading-relaxed text-stardust/80">{project.solution}</p>
         </div>
       </section>
 
-      {/* RESULTADOS — texto corrido */}
+      {/* RESULTADOS */}
       <article className="max-w-3xl mx-auto px-4 py-20">
         <SectionLabel n="06">resultados</SectionLabel>
         <h2 className="text-3xl md:text-4xl font-extrabold">Resultados</h2>
         <div className="mt-5 space-y-4 text-lg leading-relaxed text-foreground/80">
           {project.results.map((r) => (
             <p key={r.label}>
-              <span className="font-mono font-bold text-ink">{r.label}:</span>{" "}
-              <span className="text-pink font-bold">{r.value}</span>. Depois da entrega, esse foi um dos
+              <span className="font-mono font-bold text-void">{r.label}:</span>{" "}
+              <span className="text-nebula font-bold">{r.value}</span>. Depois da entrega, esse foi um dos
               indicadores que se moveu de forma mais consistente ao longo dos meses seguintes.
             </p>
           ))}
@@ -226,11 +225,11 @@ function ProjectPage() {
 
       {/* NAVEGAÇÃO */}
       <section className="max-w-5xl mx-auto px-4 pb-20">
-        <div className="border-t-2 border-ink/10 pt-8 flex flex-wrap items-center justify-between gap-4">
-          <Link to="/" className="px-4 py-2 font-mono text-sm border-2 border-ink rounded-lg hover:bg-ink hover:text-paper transition">
+        <div className="border-t-2 border-void/10 pt-8 flex flex-wrap items-center justify-between gap-4">
+          <Link to="/" className="px-4 py-2 font-mono text-sm border-2 border-void rounded-lg hover:bg-void hover:text-stardust transition">
             ← todos os projetos
           </Link>
-          <a href="/#contato" className="px-5 py-2.5 font-mono text-sm bg-pink text-ink border-2 border-ink rounded-lg hover:bg-ink hover:text-paper transition">
+          <a href="/#contato" className="px-5 py-2.5 font-mono text-sm bg-nebula text-stardust border-2 border-void rounded-lg hover:bg-void hover:text-stardust transition">
             gostou? bora conversar ♡
           </a>
         </div>
