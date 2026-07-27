@@ -7,8 +7,8 @@ export function SiteHeader() {
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 group">
           <PlanetIcon size={28} className="text-cosmic" />
-          <span className="font-mono font-bold text-lg text-stardust">
-            gg<span className="text-cosmic">.</span>dev
+            <span className="font-mono font-bold text-lg text-stardust">
+            <span className="text-cosmic">&lt;</span>giovanna<span className="text-cosmic">/&gt;</span>
           </span>
         </Link>
         <nav className="flex items-center gap-1 text-sm font-mono">

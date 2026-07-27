@@ -52,7 +52,7 @@ npm install --legacy-peer-deps
 3. Rode o servidor de desenvolvimento:
 
 ```bash
-npx vite dev
+npm run dev
 ```
 
 4. Abra no navegador:
@@ -66,8 +66,8 @@ Pronto — o site vai abrir com hot reload.
 ### Build para produção
 
 ```bash
-npx vite build
-npx vite preview
+npm run build
+npm run preview
 ```
 
 ## Projetos no portfólio

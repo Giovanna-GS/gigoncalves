@@ -4,12 +4,13 @@ import { SiteFooter } from "@/components/site-footer";
 import { projects, journey, specialties } from "@/lib/portfolio-data";
 import { icons, Mail, Linkedin, Globe, Phone } from "lucide-react";
 import { StarIcon } from "@/components/star-icon";
-import polaroid1 from "@/assets/perfil.png";
+import polaroid1 from "@/assets/perfil.jpg";
 import polaroid2 from "@/assets/polaroid-2.jpg";
 import polaroid3 from "@/assets/polaroid-3.jpg";
 import polaroid4 from "@/assets/polaroid-4.jpg";
 import polaroid5 from "@/assets/polaroid-5.jpg";
 import polaroid6 from "@/assets/polaroid-6.jpg";
+import polaroid1Img from "@/assets/polaroid-1.jpg";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -61,9 +62,11 @@ function HomePage() {
           <div className="absolute top-[70%] left-0 right-0 h-[2px] bg-cosmic/20" />
           <div className="absolute top-[80%] left-0 right-0 h-[1px] bg-stellar/15" />
 
-          {/* estrela cadente */}
+          {/* estrelas cadentes */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
             <div className="shooting-star" />
+            <div className="shooting-star-3" />
+            <div className="shooting-star-4" />
           </div>
 
           {/* losango decorativo */}
@@ -191,10 +194,12 @@ function HomePage() {
           <div className="grid md:grid-cols-[1.2fr_1fr] gap-10 items-center h-full">
             {/* Texto */}
             <div className="flex flex-col justify-center">
-              <p className="font-mono text-sm text-stardust/40 mb-4">~/giovanna $</p>
-              <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-[1.15] tracking-wide max-w-md">
-                <span className="inline-block overflow-hidden whitespace-nowrap border-r-2 border-cosmic-soft text-cosmic-soft" style={{ animation: "typing 2.5s steps(17) forwards, blink-terminal 0.8s steps(1) infinite" }}>
-                  oi, sou a Giovanna
+              <p className="font-mono text-sm text-stardust/40 mb-4">~/portfolio $</p>
+              <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-[1.15] tracking-wide max-w-xl">
+                <span className="inline-block overflow-hidden whitespace-nowrap border-r-2 border-cosmic-soft text-cosmic-soft" style={{ animation: "typing 2.5s steps(14) forwards, cursor-type 2.5s steps(1) forwards" }}>Olá, me chamo</span>
+                <br />
+                <span className="inline-block" style={{ width: "max-content" }}>
+                  <span className="inline-block overflow-hidden whitespace-nowrap text-cosmic-soft" style={{ borderRight: "2px solid transparent", animation: "typing 1.5s steps(8) 2.5s forwards, cursor-type-gio 1.5s steps(1) 2.5s forwards, blink-terminal 0.8s steps(1) 4s infinite", width: 0 }}>Giovanna</span>
                 </span>
               </h1>
               <p className="mt-5 text-base md:text-lg text-stardust/60 max-w-lg font-sans leading-relaxed">
@@ -230,7 +235,7 @@ function HomePage() {
           <div className="relative">
             <div className="polaroid w-full max-w-xs mx-auto rotate-[-3deg]">
               <span className="tape" />
-              <img src={polaroid1} alt="Meu setup" width={768} height={768} className="w-full aspect-square object-cover" loading="lazy" />
+              <img src={polaroid1Img} alt="Meu setup" width={768} height={768} className="w-full aspect-square object-cover" loading="lazy" />
               <p className="mt-2 text-center font-mono text-sm">o quarto-escritório</p>
             </div>
             <StarIcon
@@ -427,7 +432,7 @@ function HomePage() {
             {/* grid 2x3 de polaroids */}
             <div className="grid grid-cols-3 gap-5 md:gap-8">
               {[
-                { src: polaroid1, cap: "setup dos sonhos", rot: -4 },
+                { src: polaroid1Img, cap: "setup dos sonhos", rot: -4 },
                 { src: polaroid2, cap: "coding noturno", rot: 3 },
                 { src: polaroid3, cap: "wireframe day", rot: -2 },
                 { src: polaroid4, cap: "3am coding", rot: 5 },

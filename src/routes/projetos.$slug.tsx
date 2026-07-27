@@ -50,6 +50,40 @@ function SectionLabel({ n, children }: { n: string; children: React.ReactNode })
   );
 }
 
+function RenderText({ text, className }: { text: string; className?: string }) {
+  const pClass = className ?? "";
+  const listClass = "mt-3 space-y-2 list-disc list-inside " + pClass;
+  return (
+    <>
+      {text.split("\n\n").map((block, i) => {
+        const lines = block.split("\n");
+        const isList = lines.every((l) => l.startsWith("• "));
+        if (isList) {
+          return (
+            <ul key={i} className={listClass}>
+              {lines.map((line, j) => (
+                <li key={j}>{line.replace(/^• /, "")}</li>
+              ))}
+            </ul>
+          );
+        }
+        if (lines.length === 1 && lines[0].length < 40 && !lines[0].endsWith(".")) {
+          return (
+            <h3 key={i} className="mt-8 mb-2 text-xl font-bold text-void">
+              {lines[0]}
+            </h3>
+          );
+        }
+        return (
+          <p key={i} className={pClass}>
+            {lines.join(" ")}
+          </p>
+        );
+      })}
+    </>
+  );
+}
+
 function ProjectPage() {
   const { project } = Route.useLoaderData() as { project: Project };
 
@@ -93,58 +127,40 @@ function ProjectPage() {
       </section>
 
       {/* COVER */}
-      <section className="max-w-6xl mx-auto px-4 -mt-10">
+      <section className="max-w-4xl mx-auto px-4 -mt-10">
         <div className="border-2 border-void rounded-lg overflow-hidden bg-white">
           <img
             src={project.cover}
             alt={project.title}
             width={1280}
             height={900}
-            className="w-full aspect-[4/3] md:aspect-[16/9] object-cover"
+            className="w-full object-contain"
           />
         </div>
       </section>
 
       {/* DESAFIO */}
-      <article className="max-w-3xl mx-auto px-4 py-20">
+      <article className="max-w-4xl mx-auto px-4 py-20">
         <SectionLabel n="01">desafio</SectionLabel>
         <h2 className="text-3xl md:text-4xl font-extrabold">O desafio</h2>
-        <p className="mt-5 text-lg leading-relaxed text-foreground/80">{project.challenge}</p>
+        <RenderText text={project.challenge} className="mt-5 text-lg leading-relaxed text-foreground/80" />
       </article>
 
-      {/* WIDE IMAGE */}
-      <section className="w-full">
-        <div className="relative">
-          <img
-            src={project.wide}
-            alt="Visão ampla do projeto"
-            width={1920}
-            height={800}
-            loading="lazy"
-            className="w-full h-[280px] md:h-[440px] object-cover border-y-2 border-void"
-          />
-          <StarIcon
-            size={56}
-            className="absolute -bottom-6 right-8 rotate-12 animate-twinkle text-nebula"
-          />
-        </div>
-      </section>
-
       {/* PROBLEMA */}
-      <article className="max-w-3xl mx-auto px-4 py-20">
+      <article className="max-w-4xl mx-auto px-4 py-20">
         <SectionLabel n="02">problema</SectionLabel>
         <h2 className="text-3xl md:text-4xl font-extrabold">O problema real</h2>
-        <p className="mt-5 text-lg leading-relaxed text-foreground/80">{project.problem}</p>
+        <RenderText text={project.problem} className="mt-5 text-lg leading-relaxed text-foreground/80" />
       </article>
 
       {/* DESIGN + PALETA */}
-      <article className="max-w-3xl mx-auto px-4 py-8">
+      <article className="max-w-4xl mx-auto px-4 py-8">
         <SectionLabel n="03">design</SectionLabel>
         <h2 className="text-3xl md:text-4xl font-extrabold">Decisões visuais</h2>
-        <p className="mt-5 text-lg leading-relaxed text-foreground/80">{project.design}</p>
+        <RenderText text={project.design} className="mt-5 text-lg leading-relaxed text-foreground/80" />
       </article>
 
-      <section className="max-w-6xl mx-auto px-4 pb-20">
+      <section className="max-w-4xl mx-auto px-4 pb-20">
         <div className="polaroid rotate-[-1deg]">
           <span className="tape" />
           <img
@@ -153,7 +169,7 @@ function ProjectPage() {
             width={1024}
             height={512}
             loading="lazy"
-            className="w-full aspect-[16/9] object-cover"
+            className="w-full object-contain"
           />
           <p className="mt-2 text-center font-mono text-sm">paleta de cores</p>
         </div>
@@ -184,7 +200,7 @@ function ProjectPage() {
               width={1280}
               height={900}
               loading="lazy"
-              className="w-full aspect-[4/3] object-cover"
+            className="w-full max-h-[400px] object-contain"
             />
             <p className="mt-2 text-center font-mono text-sm">rascunhos + post-its</p>
           </div>
@@ -192,36 +208,50 @@ function ProjectPage() {
       </section>
 
       {/* SOLUÇÃO */}
-      <section className="bg-void text-stardust mt-16">
-        <div className="max-w-3xl mx-auto px-4 py-20">
+      <section className="bg-nebula/10 text-void mt-16">
+        <div className="max-w-4xl mx-auto px-4 py-20">
           <div className="flex items-center gap-3 mb-3">
             <span className="font-mono text-xs px-2 py-1 rounded bg-nebula text-stardust">05</span>
             <span className="font-mono text-xs uppercase tracking-widest text-nebula">solução</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-stardust">A solução</h2>
-          <p className="mt-5 text-lg leading-relaxed text-stardust/80">{project.solution}</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-void">A solução</h2>
+          <RenderText text={project.solution} className="mt-5 text-lg leading-relaxed text-void/80" />
         </div>
       </section>
 
-      {/* RESULTADOS */}
-      <article className="max-w-3xl mx-auto px-4 py-20">
-        <SectionLabel n="06">resultados</SectionLabel>
-        <h2 className="text-3xl md:text-4xl font-extrabold">Resultados</h2>
-        <div className="mt-5 space-y-4 text-lg leading-relaxed text-foreground/80">
-          {project.results.map((r) => (
-            <p key={r.label}>
-              <span className="font-mono font-bold text-void">{r.label}:</span>{" "}
-              <span className="text-nebula font-bold">{r.value}</span>. Depois da entrega, esse foi um dos
-              indicadores que se moveu de forma mais consistente ao longo dos meses seguintes.
-            </p>
-          ))}
-          <p>
-            No geral, o projeto validou a hipótese de que empatia e clareza no fluxo são mais eficazes que
-            adicionar novas features. O time seguiu iterando em cima da base entregue, e a documentação
-            gerada durante o processo virou referência interna pra próximos redesigns.
-          </p>
+      {/* RESULTADOS + WIDE IMAGE */}
+      <section className="max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-[1fr_1.2fr] gap-10 items-center">
+        <div className="polaroid rotate-[1deg]">
+          <span className="tape" />
+          <img
+            src={project.wide}
+            alt="Visão ampla do projeto"
+            width={1920}
+            height={800}
+            loading="lazy"
+            className="w-full object-contain"
+          />
+          <p className="mt-2 text-center font-mono text-sm">visão ampla</p>
         </div>
-      </article>
+        <div>
+          <SectionLabel n="06">resultados</SectionLabel>
+          <h2 className="text-3xl md:text-4xl font-extrabold">Resultados</h2>
+          <div className="mt-5 space-y-4 text-lg leading-relaxed text-foreground/80">
+            {typeof project.results === "string" ? (
+              <RenderText text={project.results} />
+            ) : (
+              <>
+                {project.results.map((r) => (
+                  <p key={r.label}>
+                    <span className="font-mono font-bold text-void">{r.label}:</span>{" "}
+                    <span className="text-nebula font-bold">{r.value}</span>.
+                  </p>
+                ))}
+              </>
+            )}
+          </div>
+        </div>
+      </section>
 
       {/* NAVEGAÇÃO */}
       <section className="max-w-5xl mx-auto px-4 pb-20">

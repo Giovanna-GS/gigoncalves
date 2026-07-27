@@ -108,6 +108,7 @@
   box-shadow: 3px 4px 12px oklch(0 0 0 / 0.35), 1px 1px 3px oklch(0 0 0 / 0.2);
   border-radius: 2px;
   position: relative;
+  overflow: hidden;
 }
 
 @utility pin {
@@ -202,6 +203,15 @@
   from { width: 0; }
   to { width: 100%; }
 }
+@keyframes cursor-type {
+  0%, 99% { border-color: var(--cosmic-soft); }
+  100% { border-color: transparent; }
+}
+@keyframes cursor-type-gio {
+  0% { border-color: transparent; }
+  1%, 99% { border-color: var(--cosmic-soft); }
+  100% { border-color: transparent; }
+}
 @keyframes blink-terminal {
   0%, 100% { border-color: var(--cosmic-soft); }
   50% { border-color: transparent; }
@@ -229,7 +239,7 @@
   height: 180px;
   background: linear-gradient(to top, oklch(0.55 0.20 340 / 0.9), oklch(0.28 0.16 340 / 0.4), transparent);
   border-radius: 1px;
-  animation: shoot-down 2s ease-in forwards;
+  animation: shoot-down 60s 0s ease-in infinite;
   opacity: 0;
   transform: rotate(35deg);
 }
@@ -246,9 +256,24 @@
 }
 @keyframes shoot-down {
   0% { transform: rotate(35deg) translateY(0); opacity: 0; }
-  3% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { transform: rotate(35deg) translateY(calc(100vh + 100px)); opacity: 0; }
+  2% { opacity: 1; }
+  5% { opacity: 1; }
+  7% { transform: rotate(35deg) translateY(calc(100vh + 100px)); opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes shoot-down-2 {
+  0% { transform: rotate(30deg) translateY(0); opacity: 0; }
+  2% { opacity: 1; }
+  5% { opacity: 1; }
+  7% { transform: rotate(30deg) translateY(calc(100vh + 100px)); opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes shoot-down-3 {
+  0% { transform: rotate(40deg) translateY(0); opacity: 0; }
+  2% { opacity: 1; }
+  5% { opacity: 1; }
+  7% { transform: rotate(40deg) translateY(calc(100vh + 100px)); opacity: 0; }
+  100% { opacity: 0; }
 }
 
 .shooting-star-2 {
@@ -277,6 +302,54 @@
   5% { opacity: 1; }
   70% { opacity: 1; }
   100% { transform: translateX(calc(100vw + 200px)) translateY(60px) rotate(-15deg); opacity: 0; }
+}
+
+.shooting-star-3 {
+  position: absolute;
+  top: -20%;
+  left: 30%;
+  width: 2px;
+  height: 140px;
+  background: linear-gradient(to top, oklch(0.85 0.08 300 / 0.8), oklch(0.70 0.10 300 / 0.3), transparent);
+  border-radius: 1px;
+  animation: shoot-down-2 60s 20s ease-in infinite;
+  opacity: 0;
+  transform: rotate(30deg);
+}
+.shooting-star-3::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -1px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: oklch(0.85 0.08 300);
+  box-shadow: 0 0 6px oklch(0.85 0.08 300), 0 0 15px oklch(0.70 0.10 300 / 0.5);
+}
+
+.shooting-star-4 {
+  position: absolute;
+  top: -20%;
+  left: 80%;
+  width: 2px;
+  height: 120px;
+  background: linear-gradient(to top, oklch(0.70 0.14 300 / 0.7), oklch(0.55 0.10 300 / 0.2), transparent);
+  border-radius: 1px;
+  animation: shoot-down-3 60s 40s ease-in infinite;
+  opacity: 0;
+  transform: rotate(40deg);
+}
+.shooting-star-4::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -1px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: oklch(0.70 0.14 300);
+  box-shadow: 0 0 6px oklch(0.70 0.14 300), 0 0 12px oklch(0.55 0.10 300 / 0.4);
 }
 
 .caret::after {
