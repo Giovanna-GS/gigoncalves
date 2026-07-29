@@ -108,7 +108,6 @@
   box-shadow: 3px 4px 12px oklch(0 0 0 / 0.35), 1px 1px 3px oklch(0 0 0 / 0.2);
   border-radius: 2px;
   position: relative;
-  overflow: hidden;
 }
 
 @utility pin {
@@ -116,10 +115,9 @@
   top: -6px;
   left: 50%;
   transform: translateX(-50%);
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background: oklch(0.55 0.16 300);
   box-shadow: 0 2px 4px oklch(0 0 0 / 0.35), inset 0 -2px 3px oklch(0 0 0 / 0.2), inset 0 2px 3px oklch(1 0 0 / 0.3);
   z-index: 10;
 }

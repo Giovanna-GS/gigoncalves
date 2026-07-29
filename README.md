@@ -1,76 +1,31 @@
-# stardust.dev — Portfólio UX & Front-end
+# stardust.dev — Portfólio UX/UI
 
-Portfólio pessoal com estética retro-futurista anos 2000, construído com TanStack Start, React, Tailwind CSS e TypeScript. Criado e hospedado via [Lovable](https://lovable.dev).
+Portfólio pessoal de projetos UX/UI, criado com auxílio de IA via [Lovable](https://lovable.dev).
 
-## Tech Stack
+## Linguagens usadas
 
-- **Framework:** TanStack Start (SSR com React 19)
-- **Estilo:** Tailwind CSS v4 + custom CSS (starfield, CRT effects, polaroids, marquee)
-- **UI:** Radix UI + Lucide Icons
-- **Build:** Vite 8
-- **Linguagem:** TypeScript
+- **TypeScript**
+- **HTML/CSS** (Tailwind CSS v4)
+- **React** (TanStack Start, SSR)
 
-## Estrutura
-
-```
-src/
-├── routes/
-│   ├── __root.tsx          # Layout raiz + meta tags + fonts
-│   ├── index.tsx           # Home (hero, sobre, projetos, jornada, galeria)
-│   └── projetos.$slug.tsx  # Página individual de cada projeto (case study)
-├── components/
-│   ├── site-header.tsx     # Header do site
-│   ├── site-footer.tsx     # Footer do site
-│   └── star-icon.tsx       # Ícone vetorial de estrela
-├── lib/
-│   └── portfolio-data.ts   # Dados dos projetos, jornada e skills
-├── assets/                 # Imagens (polaroids, capas)
-└── styles.css              # Estilos globais + paleta galaxy + animações
-```
-
-## Como rodar no navegador
-
-### Pré-requisitos
-
-- [Node.js](https://nodejs.org/) (v18+)
-- npm
-
-### Passo a passo
-
-1. Abra o terminal na pasta do projeto:
+## Como rodar
 
 ```bash
 cd gigoncalves
-```
-
-2. Instale as dependências:
-
-```bash
 npm install --legacy-peer-deps
-```
-
-3. Rode o servidor de desenvolvimento:
-
-```bash
 npm run dev
 ```
 
-4. Abra no navegador:
+Acesse `http://localhost:3000` — hot reload ativo.
 
-```
-http://localhost:3000
-```
-
-Pronto — o site vai abrir com hot reload.
-
-### Build para produção
+### Build produção
 
 ```bash
 npm run build
 npm run preview
 ```
 
-## Projetos no portfólio
+## Projetos
 
 | Projeto | Ano | Papel | Stack |
 |---------|-----|-------|-------|

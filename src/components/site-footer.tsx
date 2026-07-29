@@ -1,5 +1,4 @@
 import { Mail, Linkedin, Globe, Phone } from "lucide-react";
-import { PlanetIcon } from "./planet-icon";
 
 const contacts = [
   { Icon: Mail, label: "email", value: "giovanna.ggs99@gmail.com", href: "mailto:giovanna.ggs99@gmail.com" },
@@ -14,9 +13,10 @@ export function SiteFooter() {
       <div className="max-w-6xl mx-auto px-4 py-16 relative">
         <div className="grid md:grid-cols-3 gap-10">
           <div>
-            <div className="flex items-center gap-2 mb-3">
-              <PlanetIcon size={32} className="text-nebula" />
-              <span className="font-mono font-bold text-xl text-stardust">gg<span className="text-cosmic">.</span>dev</span>
+            <div className="mb-3">
+              <span className="font-mono font-bold text-xl text-stardust">
+                <span className="text-cosmic">&lt;</span>giovanna<span className="text-cosmic">/&gt;</span>
+              </span>
             </div>
             <p className="text-sm text-stardust/50 max-w-xs">
               UX/UI Designer & Front-end dev de São Paulo.

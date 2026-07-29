@@ -5,12 +5,13 @@ import { projects, journey, specialties } from "@/lib/portfolio-data";
 import { icons, Mail, Linkedin, Globe, Phone } from "lucide-react";
 import { StarIcon } from "@/components/star-icon";
 import polaroid1 from "@/assets/perfil.jpg";
-import polaroid2 from "@/assets/polaroid-2.jpg";
-import polaroid3 from "@/assets/polaroid-3.jpg";
-import polaroid4 from "@/assets/polaroid-4.jpg";
-import polaroid5 from "@/assets/polaroid-5.jpg";
-import polaroid6 from "@/assets/polaroid-6.jpg";
 import polaroid1Img from "@/assets/polaroid-1.jpg";
+import galleryMar from "@/assets/gallery/mar.jpg";
+import galleryViajar from "@/assets/gallery/viajar.jpg";
+import galleryHobbie from "@/assets/gallery/hobbie.webp";
+import galleryDean from "@/assets/gallery/dean.jpeg";
+import galleryChloe from "@/assets/gallery/chloe.jpeg";
+import galleryNatureza from "@/assets/gallery/natureza.jpeg";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -18,7 +19,7 @@ export const Route = createFileRoute("/")({
 
 function HomePage() {
   return (
-    <div className="min-h-screen stars-subtle">
+    <div className="min-h-screen stars-subtle overflow-x-hidden">
       <SiteHeader />
 
       {/* HERO — banner retro com estática */}
@@ -195,21 +196,26 @@ function HomePage() {
             {/* Texto */}
             <div className="flex flex-col justify-center">
               <p className="font-mono text-sm text-stardust/40 mb-4">~/portfolio $</p>
-              <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-[1.15] tracking-wide max-w-xl">
+              <h1 className="font-display font-bold text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.15] tracking-wide max-w-full overflow-hidden">
                 <span className="inline-block overflow-hidden whitespace-nowrap border-r-2 border-cosmic-soft text-cosmic-soft" style={{ animation: "typing 2.5s steps(14) forwards, cursor-type 2.5s steps(1) forwards" }}>Olá, me chamo</span>
                 <br />
                 <span className="inline-block" style={{ width: "max-content" }}>
-                  <span className="inline-block overflow-hidden whitespace-nowrap text-cosmic-soft" style={{ borderRight: "2px solid transparent", animation: "typing 1.5s steps(8) 2.5s forwards, cursor-type-gio 1.5s steps(1) 2.5s forwards, blink-terminal 0.8s steps(1) 4s infinite", width: 0 }}>Giovanna</span>
+                  <span className="inline-block overflow-hidden whitespace-nowrap text-cosmic-soft align-bottom" style={{ borderRight: "2px solid transparent", animation: "typing 1.5s steps(8) 2.5s forwards, cursor-type-gio 1.5s steps(1) 2.5s forwards, blink-terminal 0.8s steps(1) 4s infinite", width: 0 }}>Giovanna</span>
                 </span>
               </h1>
               <p className="mt-5 text-base md:text-lg text-stardust/60 max-w-lg font-sans leading-relaxed">
-                UX/UI Designer & front-end dev de São Paulo. transformo ideias em interfaces com personalidade — do wireframe ao código final.
+                Sou desenvolvedora front-end e estou migrando para UX/UI, unindo minha experiência com código ao meu interesse por criar experiências digitais mais intuitivas e funcionais.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <a href="#projetos" className="px-5 py-2.5 font-mono text-sm bg-cosmic text-stardust border-2 border-cosmic rounded-lg hover:bg-cosmic-soft/20 hover:border-cosmic-soft transition">
                   ver projetos →
                 </a>
-                <a href="#contato" className="px-5 py-2.5 font-mono text-sm border-2 border-stardust/20 text-stardust/70 rounded-lg hover:border-stardust/40 hover:text-stardust hover:bg-stardust/5 transition backdrop-blur-sm bg-void/20">
+                <a
+                  href="https://docs.google.com/document/d/1sdrIJ0ftgNPw02X3PbHqYu6oTvdG_qiE/edit?usp=sharing&ouid=102652415818054131483&rtpof=true&sd=true"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-5 py-2.5 font-mono text-sm border-2 border-stardust/20 text-stardust/70 rounded-lg hover:border-stardust/40 hover:text-stardust hover:bg-stardust/5 transition backdrop-blur-sm bg-void/20"
+                >
                   currículo
                 </a>
               </div>
@@ -219,7 +225,7 @@ function HomePage() {
             <div className="hidden md:flex justify-center items-center">
               <div className="w-[260px] lg:w-[300px] rotate-[3deg] hover:rotate-0 transition-transform duration-300">
                 <div className="polaroid">
-                  <span className="pin" />
+                  <span className="pin" style={{ background: "oklch(0.22 0.16 300)" }} />
                   <img src={polaroid1} alt="Foto da Giovanna" className="w-full aspect-square object-cover" loading="lazy" />
                   <p className="mt-2 text-center font-mono text-xs text-void">eu :)</p>
                 </div>
@@ -254,8 +260,8 @@ function HomePage() {
               </p>
               <p>
                 tô cursando pós em UX pela Belas Artes e formada em Análise e Desenvolvimento de Sistemas.
-                no dia a dia, trabalho com HTML, CSS, JavaScript, PHP, Figma e IA generativa — sempre
-                buscando usabilidade, acessibilidade e performance.
+no dia a dia, trabalho com HTML, CSS, JavaScript, PHP, Figma e IA generativa, sempre
+  buscando usabilidade, acessibilidade e performance.
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -430,14 +436,14 @@ function HomePage() {
             }}
           >
             {/* grid 2x3 de polaroids */}
-            <div className="grid grid-cols-3 gap-5 md:gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 md:gap-8">
               {[
-                { src: polaroid1Img, cap: "setup dos sonhos", rot: -4 },
-                { src: polaroid2, cap: "coding noturno", rot: 3 },
-                { src: polaroid3, cap: "wireframe day", rot: -2 },
-                { src: polaroid4, cap: "3am coding", rot: 5 },
-                { src: polaroid5, cap: "leituras da semana", rot: -3 },
-                { src: polaroid6, cap: "pausa pra estrelas", rot: 2 },
+                { src: galleryMar, cap: "mar 🩵", rot: -4 },
+                { src: galleryViajar, cap: "explorar 🩷", rot: 3 },
+                { src: galleryHobbie, cap: "inspiração ✨", rot: -2 },
+                { src: galleryDean, cap: "Dean 🐾", rot: 5 },
+                { src: galleryChloe, cap: "Chloe 🐾", rot: -3 },
+                { src: galleryNatureza, cap: "reset 🌱", rot: 2 },
               ].map((p, i) => (
                 <div
                   key={i}
@@ -445,7 +451,7 @@ function HomePage() {
                   style={{ transform: `rotate(${p.rot}deg)` }}
                 >
                   <div className="polaroid">
-                    <span className="pin" />
+                    <span className="pin" style={{ background: i % 2 === 0 ? "oklch(0.22 0.16 300)" : "oklch(0.55 0.20 340)" }} />
                     <img src={p.src} alt={p.cap} className="w-full aspect-square object-cover" loading="lazy" />
                     <p className="mt-2 text-center font-mono text-[11px] text-void">{p.cap}</p>
                   </div>
