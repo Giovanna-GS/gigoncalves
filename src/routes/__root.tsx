@@ -45,9 +45,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
     <div className="flex min-h-screen items-center justify-center px-4">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold">Ops, algo travou</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Tenta recarregar ou voltar pra home.
-        </p>
+        <p className="mt-2 text-sm text-muted-foreground">Tenta recarregar ou voltar pra home.</p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             onClick={() => {
@@ -76,9 +74,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Giovanna Gonçalves — UX/UI Designer & Front-end" },
-      { name: "description", content: "Portfólio de Giovanna Gonçalves — UX/UI Designer e front-end dev de São Paulo. Projetos, jornada e skills." },
+      {
+        name: "description",
+        content:
+          "Portfólio de Giovanna Gonçalves — UX/UI Designer e front-end dev de São Paulo. Projetos, jornada e skills.",
+      },
       { property: "og:title", content: "Giovanna Gonçalves — portfólio UX/UI & Front-end" },
-      { property: "og:description", content: "UX/UI Designer e front-end dev. Interfaces com usabilidade e código limpo." },
+      {
+        property: "og:description",
+        content: "UX/UI Designer e front-end dev. Interfaces com usabilidade e código limpo.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

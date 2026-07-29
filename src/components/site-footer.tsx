@@ -1,21 +1,37 @@
 import { Mail, Linkedin, Globe, Phone } from "lucide-react";
 
 const contacts = [
-  { Icon: Mail, label: "email", value: "giovanna.ggs99@gmail.com", href: "mailto:giovanna.ggs99@gmail.com" },
-  { Icon: Linkedin, label: "linkedin", value: "/in/giovanna-goncalves", href: "https://linkedin.com/in/giovanna-goncalves" },
-  { Icon: Globe, label: "portfólio", value: "gigoncalves.framer.website", href: "https://gigoncalves.framer.website" },
+  {
+    Icon: Mail,
+    label: "email",
+    value: "giovanna.ggs99@gmail.com",
+    href: "mailto:giovanna.ggs99@gmail.com",
+  },
+  {
+    Icon: Linkedin,
+    label: "linkedin",
+    value: "/in/giovanna-goncalves",
+    href: "https://linkedin.com/in/giovanna-goncalves",
+  },
+  {
+    Icon: Globe,
+    label: "portfólio",
+    value: "gigoncalves.framer.website",
+    href: "https://gigoncalves.framer.website",
+  },
   { Icon: Phone, label: "whatsapp", value: "(11) 98918-9746", href: "https://wa.me/5511989189746" },
 ];
 
 export function SiteFooter() {
   return (
-    <footer id="contato" className="mt-24 bg-void text-stardust relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 py-16 relative">
-        <div className="grid md:grid-cols-3 gap-10">
+    <footer id="contato" className="mt-16 md:mt-24 bg-void text-stardust relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 py-12 md:py-16 relative">
+        <div className="grid md:grid-cols-3 gap-8 md:gap-10">
           <div>
             <div className="mb-3">
               <span className="font-mono font-bold text-xl text-stardust">
-                <span className="text-cosmic">&lt;</span>giovanna<span className="text-cosmic">/&gt;</span>
+                <span className="text-cosmic">&lt;</span>giovanna
+                <span className="text-cosmic">/&gt;</span>
               </span>
             </div>
             <p className="text-sm text-stardust/50 max-w-xs">
@@ -23,7 +39,9 @@ export function SiteFooter() {
             </p>
           </div>
           <div>
-            <h4 className="font-mono text-sm uppercase tracking-widest mb-4 text-cosmic">Fala comigo</h4>
+            <h4 className="font-mono text-sm uppercase tracking-widest mb-4 text-cosmic">
+              Fala comigo
+            </h4>
             <ul className="space-y-2 text-sm text-stardust/70">
               {contacts.map(({ Icon, label, value, href }) => (
                 <li key={label}>
@@ -34,10 +52,10 @@ export function SiteFooter() {
                     className="group inline-flex items-center gap-3 hover:text-cosmic-soft transition-colors"
                     aria-label={label}
                   >
-                    <span className="w-8 h-8 flex items-center justify-center rounded-md border border-stardust/15 group-hover:border-cosmic group-hover:bg-cosmic/10 transition">
+                    <span className="w-9 h-9 flex items-center justify-center rounded-md border border-stardust/15 group-hover:border-cosmic group-hover:bg-cosmic/10 transition shrink-0">
                       <Icon size={16} strokeWidth={2} />
                     </span>
-                    <span className="font-mono">{value}</span>
+                    <span className="font-mono text-xs md:text-sm break-all">{value}</span>
                   </a>
                 </li>
               ))}
@@ -46,7 +64,8 @@ export function SiteFooter() {
           <div>
             <h4 className="font-mono text-sm uppercase tracking-widest mb-3 text-cosmic">Agora</h4>
             <p className="text-sm text-stardust/60">
-              Aberta pra oportunidades em UX/UI<br />
+              Aberta pra oportunidades em UX/UI
+              <br />
               Baseada em São Paulo, remoto ok.
             </p>
           </div>

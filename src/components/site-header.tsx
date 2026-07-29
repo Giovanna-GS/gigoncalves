@@ -17,17 +17,24 @@ export function SiteHeader() {
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center group">
           <span className="font-mono font-bold text-lg text-stardust">
-            <span className="text-cosmic">&lt;</span>giovanna<span className="text-cosmic">/&gt;</span>
+            <span className="text-cosmic">&lt;</span>giovanna
+            <span className="text-cosmic">/&gt;</span>
           </span>
         </Link>
         <nav className="hidden md:flex items-center gap-1 text-sm font-mono">
           {navLinks.map(({ href, label }) => (
-            <a key={label} href={href} className="px-3 py-1.5 rounded-md text-stardust/70 hover:text-cosmic-soft hover:bg-cosmic/10 transition">{label}</a>
+            <a
+              key={label}
+              href={href}
+              className="px-3 py-1.5 rounded-md text-stardust/70 hover:text-cosmic-soft hover:bg-cosmic/10 transition"
+            >
+              {label}
+            </a>
           ))}
         </nav>
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden p-2 text-stardust/70 hover:text-cosmic-soft transition"
+          className="md:hidden p-2.5 text-stardust/70 hover:text-cosmic-soft transition"
           aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
         >
           {menuOpen ? <X size={24} /> : <Menu size={24} />}

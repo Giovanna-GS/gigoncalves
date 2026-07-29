@@ -9,10 +9,7 @@ export function StarIcon({ className = "", size = 36 }: { className?: string; si
       className={className}
     >
       {/* 4-point star */}
-      <path
-        d="M32 2 L37 24 L62 32 L37 40 L32 62 L27 40 L2 32 L27 24 Z"
-        fill="currentColor"
-      />
+      <path d="M32 2 L37 24 L62 32 L37 40 L32 62 L27 40 L2 32 L27 24 Z" fill="currentColor" />
       {/* inner glow */}
       <path
         d="M32 14 L34 26 L46 32 L34 38 L32 50 L30 38 L18 32 L30 26 Z"

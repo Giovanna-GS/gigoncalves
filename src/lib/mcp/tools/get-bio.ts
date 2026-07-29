@@ -12,7 +12,8 @@ const bio = {
 export default defineTool({
   name: "get_bio",
   title: "Get bio",
-  description: "Returns a short bio of the portfolio owner (name, headline, location, status, summary).",
+  description:
+    "Returns a short bio of the portfolio owner (name, headline, location, status, summary).",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => ({

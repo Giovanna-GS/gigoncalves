@@ -114,11 +114,23 @@ export const projects: Project[] = [
 
 export const journey = {
   work: [
-    { year: "Nov 2024 → hoje", place: "Soluções Industriais", note: "Analista Front-end — interfaces responsivas, SEO, performance e IA aplicada a código e design." },
+    {
+      year: "Nov 2024 → hoje",
+      place: "Soluções Industriais",
+      note: "Analista Front-end — interfaces responsivas, SEO, performance e IA aplicada a código e design.",
+    },
   ],
   study: [
-    { year: "Previsão: Jun/2027", place: "Pós-graduação em UX — Belas Artes", note: "Especialização em User Experience." },
-    { year: "Concluído: Jun/2025", place: "Análise e Desenv. de Sistemas — São Judas Tadeu", note: "Graduação em tecnologia." },
+    {
+      year: "Previsão: Jun/2027",
+      place: "Pós-graduação em UX — Belas Artes",
+      note: "Especialização em User Experience.",
+    },
+    {
+      year: "Concluído: Jun/2025",
+      place: "Análise e Desenv. de Sistemas — São Judas Tadeu",
+      note: "Graduação em tecnologia.",
+    },
   ],
   skills: [
     { name: "Figma", icon: "Figma" },

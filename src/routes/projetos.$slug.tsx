@@ -32,7 +32,10 @@ function ProjectNotFound() {
       <div className="max-w-2xl mx-auto px-4 py-32 text-center">
         <h1 className="text-4xl font-bold">Projeto não encontrado</h1>
         <p className="mt-3 text-muted-foreground">Talvez tenha se perdido no cosmos…</p>
-        <Link to="/" className="mt-6 inline-block px-5 py-2 font-mono border-2 border-void rounded-lg hover:bg-void hover:text-stardust transition">
+        <Link
+          to="/"
+          className="mt-6 inline-block px-5 py-2 font-mono border-2 border-void rounded-lg hover:bg-void hover:text-stardust transition"
+        >
           ← voltar
         </Link>
       </div>
@@ -93,14 +96,16 @@ function ProjectPage() {
 
       {/* HERO */}
       <section className="bg-void text-stardust">
-        <div className="max-w-5xl mx-auto px-4 pt-16 pb-20">
+        <div className="max-w-5xl mx-auto px-4 pt-20 md:pt-24 pb-16 md:pb-20">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 font-mono text-sm text-stardust/50 mb-8">
-            <Link to="/" className="hover:text-cosmic transition">home</Link>
+          <nav className="flex items-center gap-2 font-mono text-xs md:text-sm text-stardust/50 mb-6 md:mb-8">
+            <Link to="/" className="hover:text-cosmic transition py-1">
+              home
+            </Link>
             <span className="text-stardust/30">/</span>
             <span className="text-stardust/80">{project.title}</span>
           </nav>
-          <div className="mt-6 grid md:grid-cols-[1.4fr_1fr] gap-8 items-end">
+          <div className="mt-4 md:mt-6 grid md:grid-cols-[1.4fr_1fr] gap-6 md:gap-8 items-end">
             <div>
               <div className="flex gap-2 flex-wrap mb-4">
                 <span className="font-mono text-xs px-2 py-1 rounded-full border border-stardust/20 text-stardust/70">
@@ -110,14 +115,20 @@ function ProjectPage() {
                   {project.role}
                 </span>
               </div>
-              <h1 className="text-5xl md:text-7xl font-extrabold leading-none text-stardust">
-                {project.title}<span className="text-nebula">.</span>
+              <h1 className="text-3xl sm:text-4xl md:text-7xl font-extrabold leading-none text-stardust">
+                {project.title}
+                <span className="text-nebula">.</span>
               </h1>
-              <p className="mt-4 text-lg text-stardust/60 max-w-xl">{project.tagline}</p>
+              <p className="mt-3 md:mt-4 text-base md:text-lg text-stardust/60 max-w-xl">
+                {project.tagline}
+              </p>
             </div>
             <div className="flex flex-wrap gap-2">
               {project.tools.map((t) => (
-                <span key={t} className="px-3 py-1.5 font-mono text-xs bg-stardust/10 border border-stardust/15 rounded-md text-stardust">
+                <span
+                  key={t}
+                  className="px-3 py-1.5 font-mono text-xs bg-stardust/10 border border-stardust/15 rounded-md text-stardust"
+                >
                   {t}
                 </span>
               ))}
@@ -140,27 +151,36 @@ function ProjectPage() {
       </section>
 
       {/* DESAFIO */}
-      <article className="max-w-4xl mx-auto px-4 py-20">
+      <article className="max-w-4xl mx-auto px-4 py-12 md:py-20">
         <SectionLabel n="01">desafio</SectionLabel>
-        <h2 className="text-3xl md:text-4xl font-extrabold">O desafio</h2>
-        <RenderText text={project.challenge} className="mt-5 text-lg leading-relaxed text-foreground/80" />
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold">O desafio</h2>
+        <RenderText
+          text={project.challenge}
+          className="mt-5 text-base md:text-lg leading-relaxed text-foreground/80"
+        />
       </article>
 
       {/* PROBLEMA */}
-      <article className="max-w-4xl mx-auto px-4 py-20">
+      <article className="max-w-4xl mx-auto px-4 py-12 md:py-20">
         <SectionLabel n="02">problema</SectionLabel>
-        <h2 className="text-3xl md:text-4xl font-extrabold">O problema real</h2>
-        <RenderText text={project.problem} className="mt-5 text-lg leading-relaxed text-foreground/80" />
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold">O problema real</h2>
+        <RenderText
+          text={project.problem}
+          className="mt-5 text-base md:text-lg leading-relaxed text-foreground/80"
+        />
       </article>
 
       {/* DESIGN + PALETA */}
-      <article className="max-w-4xl mx-auto px-4 py-8">
+      <article className="max-w-4xl mx-auto px-4 py-12 md:py-20">
         <SectionLabel n="03">design</SectionLabel>
-        <h2 className="text-3xl md:text-4xl font-extrabold">Decisões visuais</h2>
-        <RenderText text={project.design} className="mt-5 text-lg leading-relaxed text-foreground/80" />
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold">Decisões visuais</h2>
+        <RenderText
+          text={project.design}
+          className="mt-5 text-base md:text-lg leading-relaxed text-foreground/80"
+        />
       </article>
 
-      <section className="max-w-4xl mx-auto px-4 pb-20">
+      <section className="max-w-4xl mx-auto px-4 pb-12 md:pb-20">
         <div className="polaroid rotate-[-1deg]">
           <span className="tape" />
           <img
@@ -176,11 +196,11 @@ function ProjectPage() {
       </section>
 
       {/* PROCESSO */}
-      <section className="max-w-6xl mx-auto px-4 py-8">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section className="max-w-6xl mx-auto px-4 py-12 md:py-20">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
           <div>
             <SectionLabel n="04">processo</SectionLabel>
-            <h2 className="text-3xl md:text-4xl font-extrabold">Como cheguei lá</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold">Como cheguei lá</h2>
             <ol className="mt-6 space-y-4">
               {project.process.map((step: string, i: number) => (
                 <li key={i} className="flex gap-4">
@@ -200,7 +220,7 @@ function ProjectPage() {
               width={1280}
               height={900}
               loading="lazy"
-            className="w-full max-h-[400px] object-contain"
+              className="w-full max-h-[400px] object-contain"
             />
             <p className="mt-2 text-center font-mono text-sm">rascunhos + post-its</p>
           </div>
@@ -208,19 +228,22 @@ function ProjectPage() {
       </section>
 
       {/* SOLUÇÃO */}
-      <section className="bg-nebula/10 text-void mt-16">
-        <div className="max-w-4xl mx-auto px-4 py-20">
+      <section className="bg-nebula/10 text-void">
+        <div className="max-w-4xl mx-auto px-4 py-16 md:py-24">
           <div className="flex items-center gap-3 mb-3">
             <span className="font-mono text-xs px-2 py-1 rounded bg-nebula text-stardust">05</span>
             <span className="font-mono text-xs uppercase tracking-widest text-nebula">solução</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-void">A solução</h2>
-          <RenderText text={project.solution} className="mt-5 text-lg leading-relaxed text-void/80" />
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-void">A solução</h2>
+          <RenderText
+            text={project.solution}
+            className="mt-5 text-base md:text-lg leading-relaxed text-void/80"
+          />
         </div>
       </section>
 
       {/* RESULTADOS + WIDE IMAGE */}
-      <section className="max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-[1fr_1.2fr] gap-10 items-center">
+      <section className="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-[1fr_1.2fr] gap-8 md:gap-10 items-center">
         <div className="polaroid rotate-[1deg]">
           <span className="tape" />
           <img
@@ -235,8 +258,8 @@ function ProjectPage() {
         </div>
         <div>
           <SectionLabel n="06">resultados</SectionLabel>
-          <h2 className="text-3xl md:text-4xl font-extrabold">Resultados</h2>
-          <div className="mt-5 space-y-4 text-lg leading-relaxed text-foreground/80">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold">Resultados</h2>
+          <div className="mt-5 space-y-4 text-base md:text-lg leading-relaxed text-foreground/80">
             {typeof project.results === "string" ? (
               <RenderText text={project.results} />
             ) : (
@@ -254,12 +277,18 @@ function ProjectPage() {
       </section>
 
       {/* NAVEGAÇÃO */}
-      <section className="max-w-5xl mx-auto px-4 pb-20">
+      <section className="max-w-5xl mx-auto px-4 pb-16 md:pb-24">
         <div className="border-t-2 border-void/10 pt-8 flex flex-wrap items-center justify-between gap-4">
-          <Link to="/" className="px-4 py-2 font-mono text-sm border-2 border-void rounded-lg hover:bg-void hover:text-stardust transition">
+          <Link
+            to="/"
+            className="px-4 py-2 font-mono text-sm border-2 border-void rounded-lg hover:bg-void hover:text-stardust transition"
+          >
             ← todos os projetos
           </Link>
-          <a href="/#contato" className="px-5 py-2.5 font-mono text-sm bg-nebula text-stardust border-2 border-void rounded-lg hover:bg-void hover:text-stardust transition">
+          <a
+            href="/#contato"
+            className="px-5 py-2.5 font-mono text-sm bg-nebula text-stardust border-2 border-void rounded-lg hover:bg-void hover:text-stardust transition"
+          >
             gostou? bora conversar ♡
           </a>
         </div>
