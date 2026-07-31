@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { projects, type Project } from "@/lib/portfolio-data";
 import { StarIcon } from "@/components/star-icon";
+import { Lightbox, LightboxTrigger } from "@/components/lightbox";
 
 export const Route = createFileRoute("/projetos/$slug")({
   loader: ({ params }) => {
@@ -90,6 +92,15 @@ function RenderText({ text, className }: { text: string; className?: string }) {
 function ProjectPage() {
   const { project } = Route.useLoaderData() as { project: Project };
 
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const projectImages = [
+    { src: project.cover, alt: project.title },
+    { src: project.palette, alt: "Paleta de cores do projeto" },
+    { src: project.detail, alt: "Detalhe do processo — rascunhos e post-its" },
+    { src: project.wide, alt: "Visão ampla do projeto" },
+  ];
+
   return (
     <div className="min-h-screen stars-subtle">
       <SiteHeader />
@@ -140,13 +151,15 @@ function ProjectPage() {
       {/* COVER */}
       <section className="max-w-4xl mx-auto px-4 -mt-10">
         <div className="border-2 border-void rounded-lg overflow-hidden bg-white">
-          <img
-            src={project.cover}
-            alt={project.title}
-            width={1280}
-            height={900}
-            className="w-full object-contain"
-          />
+          <LightboxTrigger onClick={() => setLightboxIndex(0)} label={project.title}>
+            <img
+              src={project.cover}
+              alt={project.title}
+              width={1280}
+              height={900}
+              className="w-full object-contain"
+            />
+          </LightboxTrigger>
         </div>
       </section>
 
@@ -183,14 +196,16 @@ function ProjectPage() {
       <section className="max-w-4xl mx-auto px-4 pb-12 md:pb-20">
         <div className="polaroid rotate-[-1deg]">
           <span className="tape" />
-          <img
-            src={project.palette}
-            alt="Paleta de cores do projeto"
-            width={1024}
-            height={512}
-            loading="lazy"
-            className="w-full object-contain"
-          />
+          <LightboxTrigger onClick={() => setLightboxIndex(1)} label="Paleta de cores do projeto">
+            <img
+              src={project.palette}
+              alt="Paleta de cores do projeto"
+              width={1024}
+              height={512}
+              loading="lazy"
+              className="w-full object-contain"
+            />
+          </LightboxTrigger>
           <p className="mt-2 text-center font-mono text-sm">paleta de cores</p>
         </div>
       </section>
@@ -214,14 +229,19 @@ function ProjectPage() {
           </div>
           <div className="polaroid rotate-[-2deg]">
             <span className="tape" />
-            <img
-              src={project.detail}
-              alt="Detalhe do processo"
-              width={1280}
-              height={900}
-              loading="lazy"
-              className="w-full max-h-[400px] object-contain"
-            />
+            <LightboxTrigger
+              onClick={() => setLightboxIndex(2)}
+              label="Detalhe do processo — rascunhos e post-its"
+            >
+              <img
+                src={project.detail}
+                alt="Detalhe do processo"
+                width={1280}
+                height={900}
+                loading="lazy"
+                className="w-full max-h-[400px] object-contain"
+              />
+            </LightboxTrigger>
             <p className="mt-2 text-center font-mono text-sm">rascunhos + post-its</p>
           </div>
         </div>
@@ -246,14 +266,16 @@ function ProjectPage() {
       <section className="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-[1fr_1.2fr] gap-8 md:gap-10 items-center">
         <div className="polaroid rotate-[1deg]">
           <span className="tape" />
-          <img
-            src={project.wide}
-            alt="Visão ampla do projeto"
-            width={1920}
-            height={800}
-            loading="lazy"
-            className="w-full object-contain"
-          />
+          <LightboxTrigger onClick={() => setLightboxIndex(3)} label="Visão ampla do projeto">
+            <img
+              src={project.wide}
+              alt="Visão ampla do projeto"
+              width={1920}
+              height={800}
+              loading="lazy"
+              className="w-full object-contain"
+            />
+          </LightboxTrigger>
           <p className="mt-2 text-center font-mono text-sm">visão ampla</p>
         </div>
         <div>
@@ -295,6 +317,15 @@ function ProjectPage() {
       </section>
 
       <SiteFooter />
+
+      {lightboxIndex !== null && (
+        <Lightbox
+          images={projectImages}
+          index={lightboxIndex}
+          onIndexChange={setLightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+        />
+      )}
     </div>
   );
 }
