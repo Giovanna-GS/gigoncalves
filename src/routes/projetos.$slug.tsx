@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { projects, type Project } from "@/lib/portfolio-data";
 import { StarIcon } from "@/components/star-icon";
 import { Lightbox, LightboxTrigger } from "@/components/lightbox";
+import { CrtMonitor } from "@/components/crt-monitor";
 
 export const Route = createFileRoute("/projetos/$slug")({
   loader: ({ params }) => {
@@ -97,7 +98,7 @@ function ProjectPage() {
   const projectImages = [
     { src: project.cover, alt: project.title },
     { src: project.palette, alt: "Paleta de cores do projeto" },
-    { src: project.detail, alt: "Detalhe do processo — rascunhos e post-its" },
+    { src: project.detail, alt: "Detalhe do processo — pesquisas" },
     { src: project.wide, alt: "Visão ampla do projeto" },
   ];
 
@@ -231,7 +232,7 @@ function ProjectPage() {
             <span className="tape" />
             <LightboxTrigger
               onClick={() => setLightboxIndex(2)}
-              label="Detalhe do processo — rascunhos e post-its"
+              label="Detalhe do processo — pesquisas"
             >
               <img
                 src={project.detail}
@@ -242,7 +243,7 @@ function ProjectPage() {
                 className="w-full max-h-[400px] object-contain"
               />
             </LightboxTrigger>
-            <p className="mt-2 text-center font-mono text-sm">rascunhos + post-its</p>
+            <p className="mt-2 text-center font-mono text-sm">pesquisas</p>
           </div>
         </div>
       </section>
@@ -297,6 +298,31 @@ function ProjectPage() {
           </div>
         </div>
       </section>
+
+      {/* CRT MONITOR — só no petshop checkout */}
+      {project.slug === "petshop-checkout" && (
+        <section className="bg-void text-stardust">
+          <div className="max-w-5xl mx-auto px-4 py-16 md:py-24 text-center">
+            <div className="flex items-center gap-3 mb-3 justify-center">
+              <span className="font-mono text-xs px-2 py-1 rounded bg-stardust/10 border border-stardust/20 text-stardust">
+                07
+              </span>
+              <span className="font-mono text-xs uppercase tracking-widest text-cosmic">
+                experiência
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-stardust">
+              Reviva o desktop dos anos 2000
+            </h2>
+            <p className="mt-3 text-stardust/60 max-w-xl mx-auto">
+              Botei o monitor pra funcionar de novo — clica pra dar boot.
+            </p>
+            <div className="mt-10">
+              <CrtMonitor />
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* NAVEGAÇÃO */}
       <section className="max-w-5xl mx-auto px-4 pb-16 md:pb-24">
