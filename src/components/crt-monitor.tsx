@@ -15,7 +15,7 @@ export function CrtMonitor() {
   }, [boot]);
 
   return (
-    <div className="mx-auto flex w-full max-w-2xl flex-col items-center">
+    <div className="mx-auto flex w-full max-w-xl flex-col items-center">
       {/* corpo do monitor */}
       <div className="relative w-full rounded-[26px] rounded-b-[36px] bg-gradient-to-b from-stone-300 via-stone-400 to-stone-500 p-4 md:p-7 shadow-2xl">
         {/* moldura da tela */}

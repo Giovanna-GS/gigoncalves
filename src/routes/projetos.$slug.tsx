@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { projects, type Project } from "@/lib/portfolio-data";
 import { StarIcon } from "@/components/star-icon";
 import { Lightbox, LightboxTrigger } from "@/components/lightbox";
-import { CrtMonitor } from "@/components/crt-monitor";
+import { ProjectPageGiovannaOs } from "@/components/project-giovanna-os";
 
 export const Route = createFileRoute("/projetos/$slug")({
   loader: ({ params }) => {
@@ -94,6 +94,10 @@ function ProjectPage() {
   const { project } = Route.useLoaderData() as { project: Project };
 
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  if (project.slug === "giovanna-os") {
+    return <ProjectPageGiovannaOs project={project} />;
+  }
 
   const projectImages = [
     { src: project.cover, alt: project.title },
@@ -185,31 +189,32 @@ function ProjectPage() {
       </article>
 
       {/* DESIGN + PALETA */}
-      <article className="max-w-4xl mx-auto px-4 py-12 md:py-20">
-        <SectionLabel n="03">design</SectionLabel>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold">Decisões visuais</h2>
-        <RenderText
-          text={project.design}
-          className="mt-5 text-base md:text-lg leading-relaxed text-foreground/80"
-        />
-      </article>
-
-      <section className="max-w-4xl mx-auto px-4 pb-12 md:pb-20">
-        <div className="polaroid rotate-[-1deg]">
-          <span className="tape" />
-          <LightboxTrigger onClick={() => setLightboxIndex(1)} label="Paleta de cores do projeto">
-            <img
-              src={project.palette}
-              alt="Paleta de cores do projeto"
-              width={1024}
-              height={512}
-              loading="lazy"
-              className="w-full object-contain"
+      <article className="max-w-5xl mx-auto px-4 py-12 md:py-20">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
+          <div className="polaroid rotate-[-1deg]">
+            <span className="tape" />
+            <LightboxTrigger onClick={() => setLightboxIndex(1)} label="Paleta de cores do projeto">
+              <img
+                src={project.palette}
+                alt="Paleta de cores do projeto"
+                width={1024}
+                height={512}
+                loading="lazy"
+                className="w-full object-contain"
+              />
+            </LightboxTrigger>
+            <p className="mt-2 text-center font-mono text-sm">paleta de cores</p>
+          </div>
+          <div>
+            <SectionLabel n="03">design</SectionLabel>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold">Decisões visuais</h2>
+            <RenderText
+              text={project.design}
+              className="mt-5 text-base md:text-lg leading-relaxed text-foreground/80"
             />
-          </LightboxTrigger>
-          <p className="mt-2 text-center font-mono text-sm">paleta de cores</p>
+          </div>
         </div>
-      </section>
+      </article>
 
       {/* PROCESSO */}
       <section className="max-w-6xl mx-auto px-4 py-12 md:py-20">
@@ -298,31 +303,6 @@ function ProjectPage() {
           </div>
         </div>
       </section>
-
-      {/* CRT MONITOR — só no petshop checkout */}
-      {project.slug === "petshop-checkout" && (
-        <section className="bg-void text-stardust">
-          <div className="max-w-5xl mx-auto px-4 py-16 md:py-24 text-center">
-            <div className="flex items-center gap-3 mb-3 justify-center">
-              <span className="font-mono text-xs px-2 py-1 rounded bg-stardust/10 border border-stardust/20 text-stardust">
-                07
-              </span>
-              <span className="font-mono text-xs uppercase tracking-widest text-cosmic">
-                experiência
-              </span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-stardust">
-              Reviva o desktop dos anos 2000
-            </h2>
-            <p className="mt-3 text-stardust/60 max-w-xl mx-auto">
-              Botei o monitor pra funcionar de novo — clica pra dar boot.
-            </p>
-            <div className="mt-10">
-              <CrtMonitor />
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* NAVEGAÇÃO */}
       <section className="max-w-5xl mx-auto px-4 pb-16 md:pb-24">

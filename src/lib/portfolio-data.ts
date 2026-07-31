@@ -43,7 +43,7 @@ export const projects: Project[] = [
     problem:
       "As pesquisas revelaram que muitos usuários se sentiam inseguros durante o processo de adoção, principalmente por falta de informações sobre os pets, sua adaptação ao novo lar e as etapas da adoção.\n\nCom base nesses insights, o projeto buscou criar uma experiência mais clara, acolhedora e intuitiva, reduzindo dúvidas e aumentando a confiança dos futuros adotantes.",
     design:
-      "O conceito visual\n\nA identidade visual da Liga das Patas foi inspirada na ideia de que cada pet resgatado é um super-herói.\n\nAs capas e o estilo dos personagens simbolizam coragem, superação e esperança, criando uma conexão emocional com o usuário e reforçando a missão da ONG de encontrar um novo lar para esses animais.\n\nDecisões visuais\n\nA identidade combina a Inter, utilizada pela sua legibilidade e clareza, com a Fredoka, escolhida para transmitir acolhimento e personalidade.\n\nA paleta une tons de roxo, que representam cuidado e confiança, e laranja, associado à alegria e energia, equilibrados pelo branco e preto para garantir contraste e boa legibilidade.",
+      "O conceito visual da Liga das Patas foi inspirado na ideia de que cada pet resgatado é um super-herói.\n\nAs capas e o estilo dos personagens simbolizam coragem, superação e esperança, criando uma conexão emocional com o usuário e reforçando a missão da ONG de encontrar um novo lar para esses animais.\n\nPara transmitir essa personalidade, a identidade visual combina a Inter, escolhida por sua legibilidade e clareza, com a Fredoka, que, por suas formas arredondadas, transmite acolhimento, alegria e leveza, reforçando o aspecto amigável dos pets.\n\nA paleta une tons de roxo, associados ao cuidado e à confiança, com laranja, que representa energia e carinho, equilibrados pelo branco e preto para garantir contraste e boa legibilidade.",
     process: [
       "Pesquisa com personas e mapas de empatia para compreender necessidades dos usuários",
       "Análise de comportamentos e fontes de informação dos potenciais adotantes",
@@ -56,32 +56,30 @@ export const projects: Project[] = [
       "O resultado foi uma plataforma de adoção intuitiva e acolhedora, desenvolvida para aproximar pessoas dos pets resgatados e facilitar toda a jornada de adoção.\n\nA identidade visual inspirada em super-heróis fortalece a conexão emocional com os animais, destacando suas histórias de coragem, superação e a importância de uma nova chance.\n\nO projeto busca unir informação, acessibilidade e empatia para incentivar adoções e ampliar o apoio à causa animal.",
   },
   {
-    slug: "petshop-checkout",
-    title: "Petshop Checkout",
-    tagline: "Redesign de checkout mobile para e-commerce pet.",
+    slug: "giovanna-os",
+    title: "giovanna.os",
+    tagline: "Um portfólio interativo inspirado no desktop do Windows 7.",
     cover: project2Cover,
     wide: project1Wide,
     detail: project1Detail,
     palette: palettePlaceholder,
     year: "2024",
-    role: "UX/UI Designer",
-    tools: ["Figma", "Maze", "Hotjar"],
-    challenge: "Reduzir abandono no checkout mobile, que estava em 74%.",
+    role: "Front-end + UX",
+    tools: ["React", "TypeScript", "Vite", "CSS", "IA Generativa"],
+    challenge:
+      "Criar um portfólio que fosse além de uma vitrine de projetos. Inspirado na nostalgia do Windows 7, o objetivo foi desenvolver uma experiência interativa que refletisse minha personalidade e transformasse a navegação em algo divertido e memorável.",
     problem:
-      "Fluxo de 6 telas com campos redundantes, sem indicadores claros de progresso e frete calculado só no final.",
+      "O conceito visual combina referências dos anos 2000 com elementos do meu estilo pessoal. A paleta foi inspirada em cores marcantes da época, adaptadas para uma estética mais moderna, enquanto a temática de galáxia traz identidade ao projeto. Para reforçar a nostalgia, também incluí um player de música inspirado nas playlists do Tumblr.",
     design:
-      "Cores sóbrias e tons de cinza quente para não competir com os produtos pet. O rosa aparece como destaque nos botões principais e no indicador de progresso, criando ritmo visual sem exageros.",
+      "A navegação recria a experiência do Windows 7 por meio de janelas que representam cada seção do portfólio. Além das páginas principais, foram adicionados elementos como Diário, Guestbook, Lixeira e Menu Iniciar, tornando a exploração mais dinâmica e imersiva.",
     process: [
-      "Análise heurística do fluxo existente",
-      "Session replay de 200 usuários",
-      "Testes A/B com dois protótipos",
+      "O projeto foi desenvolvido com React, TypeScript e Vite, utilizando CSS para recriar os elementos da interface do Windows 7.",
+      "A inteligência artificial foi utilizada como ferramenta de apoio durante a implementação de algumas funcionalidades, enquanto as decisões de design e experiência foram definidas por mim.",
     ],
     solution:
-      "Checkout em página única com frete calculado no primeiro passo, autopreenchimento inteligente e resumo pinado no topo.",
-    results: [
-      { label: "Abandono", value: "-31%" },
-      { label: "Ticket médio", value: "+18%" },
-    ],
+      "Este projeto foi pensado para ser explorado. Abra as janelas, descubra os detalhes e navegue por uma experiência inspirada no Windows 7.",
+    results:
+      "Este projeto foi pensado para ser explorado. Abra as janelas, descubra os detalhes e navegue por uma experiência inspirada no Windows 7.",
   },
   {
     slug: "dash-catlover",
