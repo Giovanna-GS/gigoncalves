@@ -87,14 +87,18 @@ export function ProjectPageGiovannaOs({ project }: { project: Project }) {
 
       {/* IMAGEM DE ABERTURA */}
       <section className="max-w-4xl mx-auto px-4 -mt-10">
-        <div className="border-2 border-void rounded-lg overflow-hidden bg-white">
-          <LightboxTrigger onClick={() => setLightboxIndex(0)} label="Visão ampla do projeto">
+        <div className="w-fit mx-auto border-2 border-void rounded-lg overflow-hidden bg-white">
+          <LightboxTrigger
+            className="w-fit"
+            onClick={() => setLightboxIndex(0)}
+            label="Visão ampla do projeto"
+          >
             <img
               src={images[0].src}
               alt={images[0].alt}
               width={1920}
               height={800}
-              className="w-full object-contain"
+              className="w-auto max-h-[420px] object-contain"
             />
           </LightboxTrigger>
         </div>

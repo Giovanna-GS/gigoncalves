@@ -153,29 +153,32 @@ function ProjectPage() {
         </div>
       </section>
 
-      {/* COVER */}
-      <section className="max-w-4xl mx-auto px-4 -mt-10">
-        <div className="border-2 border-void rounded-lg overflow-hidden bg-white">
-          <LightboxTrigger onClick={() => setLightboxIndex(0)} label={project.title}>
-            <img
-              src={project.cover}
-              alt={project.title}
-              width={1280}
-              height={900}
-              className="w-full object-contain"
-            />
-          </LightboxTrigger>
-        </div>
-      </section>
-
       {/* DESAFIO */}
-      <article className="max-w-4xl mx-auto px-4 py-12 md:py-20">
-        <SectionLabel n="01">desafio</SectionLabel>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold">O desafio</h2>
-        <RenderText
-          text={project.challenge}
-          className="mt-5 text-base md:text-lg leading-relaxed text-foreground/80"
-        />
+      <article className="max-w-5xl mx-auto px-4 py-12 md:py-20">
+        <div className="grid md:grid-cols-[1.3fr_1fr] gap-10 md:gap-12 items-center">
+          <div>
+            <SectionLabel n="01">desafio</SectionLabel>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold">O desafio</h2>
+            <RenderText
+              text={project.challenge}
+              className="mt-5 text-base md:text-lg leading-relaxed text-foreground/80"
+            />
+          </div>
+          <div className="polaroid rotate-[2deg]">
+            <span className="tape" />
+            <LightboxTrigger onClick={() => setLightboxIndex(0)} label={project.title}>
+              <img
+                src={project.cover}
+                alt={project.title}
+                width={1280}
+                height={900}
+                loading="lazy"
+                className="w-full max-h-[400px] object-contain"
+              />
+            </LightboxTrigger>
+            <p className="mt-2 text-center font-mono text-sm">capa do projeto</p>
+          </div>
+        </div>
       </article>
 
       {/* PROBLEMA */}
