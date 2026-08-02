@@ -36,8 +36,8 @@ export function ProjectPageGiovannaOs({ project }: { project: Project }) {
 
   const images = [
     { src: project.wide, alt: "Visão ampla do projeto" },
-    { src: project.palette, alt: "Paleta de cores do projeto" },
-    { src: project.detail, alt: "Detalhe do processo" },
+    { src: project.palette, alt: "Inspiração do projeto" },
+    { src: project.detail, alt: "Tela inicial do projeto" },
   ];
 
   return (
@@ -129,17 +129,17 @@ export function ProjectPageGiovannaOs({ project }: { project: Project }) {
           </div>
           <div className="polaroid rotate-[2deg]">
             <span className="tape" />
-            <LightboxTrigger onClick={() => setLightboxIndex(1)} label="Paleta de cores do projeto">
+            <LightboxTrigger onClick={() => setLightboxIndex(1)} label="Inspiração">
               <img
-                src={images[0].src}
-                alt={images[0].alt}
+                src={images[1].src}
+                alt={images[1].alt}
                 width={1024}
                 height={512}
                 loading="lazy"
                 className="w-full object-contain"
               />
             </LightboxTrigger>
-            <p className="mt-2 text-center font-mono text-sm">paleta de cores</p>
+            <p className="mt-2 text-center font-mono text-sm">inspiração</p>
           </div>
         </div>
       </article>
@@ -160,7 +160,7 @@ export function ProjectPageGiovannaOs({ project }: { project: Project }) {
         <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
           <div className="polaroid rotate-[-2deg] md:order-1">
             <span className="tape" />
-            <LightboxTrigger onClick={() => setLightboxIndex(2)} label="Detalhe do processo">
+            <LightboxTrigger onClick={() => setLightboxIndex(2)} label="Tela inicial">
               <img
                 src={images[2].src}
                 alt={images[2].alt}
@@ -170,7 +170,7 @@ export function ProjectPageGiovannaOs({ project }: { project: Project }) {
                 className="w-full object-contain"
               />
             </LightboxTrigger>
-            <p className="mt-2 text-center font-mono text-sm">detalhes do processo</p>
+            <p className="mt-2 text-center font-mono text-sm">tela inicial</p>
           </div>
           <div className="md:order-2">
             <SectionLabel n="04">desenvolvimento</SectionLabel>

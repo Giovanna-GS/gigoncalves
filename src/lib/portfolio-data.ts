@@ -3,7 +3,10 @@ import project1Wide from "@/assets/projeto-1/ong-4.png";
 import project1WideLiga from "@/assets/projeto-1/ong-3.png";
 import project1Detail from "@/assets/projeto-1/ong-3.png";
 import project1Palette from "@/assets/projeto-1/ong-2.png";
-import project2Cover from "@/assets/project-2-cover.jpg";
+import project2Cover from "@/assets/projeto-2/portfolio-1.png";
+import project2Wide from "@/assets/projeto-2/portfolio-1.png";
+import project2Palette from "@/assets/projeto-2/portfolio-2.jpeg";
+import project2Detail from "@/assets/projeto-2/portfolio-3.png";
 import project3Cover from "@/assets/project-3-cover.jpg";
 import palettePlaceholder from "@/assets/palette.png";
 
@@ -60,10 +63,10 @@ export const projects: Project[] = [
     title: "giovanna.os",
     tagline: "Um portfólio interativo inspirado no desktop do Windows 7.",
     cover: project2Cover,
-    wide: project1Wide,
-    detail: project1Detail,
-    palette: palettePlaceholder,
-    year: "2024",
+    wide: project2Wide,
+    detail: project2Detail,
+    palette: project2Palette,
+    year: "2026",
     role: "Front-end + UX",
     tools: ["React", "TypeScript", "Vite", "CSS", "IA Generativa"],
     challenge:
